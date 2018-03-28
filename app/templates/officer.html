@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div style="border: 1px solid black; margin-bottom: 2em;">
+    <h2>{{user.name}}</h2>
+    <p>Role: {{user.role}}</p>
+    {% if user.type == "full" %}
+      <small>Full time officer</small>
+    {% else %}
+      <small>Part time officer</small>
+    {% endif %}
+    <p>Term: {{user.term}}</p>
+  </div>
+{% endblock %}
+

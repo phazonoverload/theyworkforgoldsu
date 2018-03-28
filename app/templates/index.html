@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for user in users %}
+    <div style="border: 1px solid black; margin-bottom: 2em;">
+      <h2>{{user.name}}</h2>
+      <p>Role: {{user.role}}</p>
+      {% if user.type == "full" %}
+        <small>Full time officer</small>
+      {% else %}
+        <small>Part time officer</small>
+      {% endif %}
+      <p>Term: {{user.term}}</p>
+      <p><a href="/officer?role={{user.page}}">More info</a></p>
+    </div>
+  {% endfor %}
+{% endblock %}
