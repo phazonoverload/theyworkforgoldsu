@@ -9,7 +9,9 @@
 </head>
 
 <body>
-  <header>They Work For GoldSU: <a href="/">Home</a> <a href="/login">Login</a>
+  <header>They Work For GoldSU:
+    <a href="{{url_for('index')}}">Home</a>
+    <a href="{{url_for('login')}}">Login</a>
   </header>
   {% with messages = get_flashed_messages() %}
     {% if messages %}
