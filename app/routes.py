@@ -1,5 +1,6 @@
 from flask import render_template
 from app import app
+from app.forms import LoginForm
 
 users = [
     {
@@ -27,3 +28,8 @@ def index():
 def officers():
     user = users[0]
     return render_template('officer.html', user=user)
+
+@app.route("/login")
+def login():
+    form = LoginForm()
+    return render_template("login.html", form=form)

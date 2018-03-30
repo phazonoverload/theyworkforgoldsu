@@ -3,6 +3,7 @@
 ## Requirements
 
 * flask
+* flask-wtf
 
 ## Overview of project
 

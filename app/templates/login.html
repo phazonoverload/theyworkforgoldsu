@@ -1,0 +1,23 @@
+{% extends base.html %}
+
+{% block content %}
+
+<h1>Sign In</h1>
+<form action="" method="POST">
+  {{form.hidden_tag()}}
+  <div class="input-group">
+    {{form.username.label}} 
+    {{form.username()}}
+  </div>
+  <div class="input-group">
+    {{form.password.label}} 
+    {{form.password()}}
+  </div>
+  <div class="input-group">
+    {{form.remember_me()}}
+    {{form.remember_me.label}} 
+  </div>
+  {{form.submit()}}
+</form>
+
+{% endblock %}
