@@ -4,6 +4,8 @@
 
 * flask
 * flask-wtf
+* flask-sqlalchemy
+* flask-migrate
 
 ## Overview of project
 
