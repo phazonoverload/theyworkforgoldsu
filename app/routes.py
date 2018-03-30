@@ -1,5 +1,5 @@
 from flask import render_template, flash, redirect, url_for
-from flask_login import current_user, login_user, logout_user
+from flask_login import current_user, login_user, logout_user, login_required
 from app import app
 from app.forms import LoginForm
 from app.models import User
@@ -22,7 +22,6 @@ users = [
 ]
 
 @app.route('/')
-@app.route('/index')
 def index():
     return render_template('index.html', users=users)
 
@@ -35,7 +34,7 @@ def officers():
 def login():
     # If already logged in, chuck them back to home
     if current_user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('/'))
     form = LoginForm()
     # If request comes with form data
     if form.validate_on_submit():
@@ -46,11 +45,16 @@ def login():
             return redirect(url_for('login'))
         # Login the user and push back to home
         login_user(user, remember=form.remember_me.data)
-        return redirect(url_for('index'))
+        return redirect(url_for('/'))
     # If request does not come with form data
     return render_template("login.html", form=form)
 
 @app.route("/logout")
 def logout():
     logout_user()
-    return redirect(url_for("index"))
+    return redirect(url_for("/"))
+
+@app.route("/protected")
+@login_required
+def protected():
+    return "You're in!"
