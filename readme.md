@@ -10,8 +10,7 @@
 ## Setting up project
 
 ```
-$ flask db init // Initialise databse
-$ flask db update // Run migrations
+TBC
 ```
 
 ## Running project
