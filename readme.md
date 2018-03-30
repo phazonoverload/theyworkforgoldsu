@@ -7,6 +7,19 @@
 * flask-sqlalchemy
 * flask-migrate
 
+## Setting up project
+
+```
+$ flask db init // Initialise databse
+$ flask db update // Run migrations
+```
+
+## Running project
+
+```
+TBC
+```
+
 ## Overview of project
 
 Born from a desire to better understand how promises are carried through, They Work For GoldSU is a platform for elected officials at Goldsmiths Students' Union to keep a meaningful log of their progress throughout the year. The platform will be prepopulated with the manifesto promises of the 2017-2018 full-time and part-time officers, and give them the opportunity to log progress of each promise along with a completion percentage as they see it (with anything less than 100% meaning they did not manage to complete the task).
