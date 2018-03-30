@@ -1,23 +1,30 @@
 # The Work For GoldSU
 
-## Requirements
-
-* flask
-* flask-wtf
-* flask-sqlalchemy
-* flask-migrate
-* flask-login
-
 ## Setting up project
 
+Before you start, make sure you have Python and pip installed, along with [virtualenv](https://virtualenv.pypa.io/en/stable/installation/).
+
+The first step is to `git clone` this repository. Once you've done that navigate to the newly-downloaded folder in your terminal and run the following commands:
+
 ```
-TBC
+# Setup a new virtual environment and install dependencies
+$ virtualenv venv venv
+$ source venv/bin/activate
+$ pip install -r requirements.txt
+
+# Set up database
+$ flask db upgrade
 ```
 
 ## Running project
 
 ```
-TBC
+# Enable virtualenv if you killed your terminal instance since the last time you ran this command
+$ source venv/bin/activate
+
+# Expose the entry point of our Flask app and run it
+$ export FLASK_APP=main.py
+$ flask run
 ```
 
 ## Overview of project
