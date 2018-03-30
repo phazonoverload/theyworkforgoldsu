@@ -6,6 +6,7 @@
 * flask-wtf
 * flask-sqlalchemy
 * flask-migrate
+* flask-login
 
 ## Setting up project
 
