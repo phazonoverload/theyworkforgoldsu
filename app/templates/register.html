@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>Register for an account</h1>
+<h2>Please note that only officers and media managers should register for accounts</h2>
+
+<form action="" method="POST">
+  {{form.hidden_tag()}}
+  <div class="input-group">
+    {{form.username.label}} {{form.username()}} {% for error in form.username.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  <div class="input-group">
+    {{form.email.label}} {{form.email()}} {% for error in form.email.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  <div class="input-group">
+    {{form.role.label}} {{form.role()}} {% for error in form.role.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  <div class="input-group">
+    {{form.role_type.label}} {{form.role_type()}} {% for error in form.role_type.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  <div class="input-group">
+    {{form.password.label}} {{form.password()}} {% for error in form.password.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  <div class="input-group">
+    {{form.password2.label}} {{form.password2()}} {% for error in form.password2.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  {{form.submit()}}
+</form>
+
+{% endblock %}

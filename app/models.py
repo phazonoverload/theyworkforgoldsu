@@ -7,7 +7,8 @@ class User(UserMixin, db.Model):
   username = db.Column(db.String(128), index=True, unique=True)
   email = db.Column(db.String(128), index=True, unique=True)
   role = db.Column(db.String(64), index=True, unique=True)
-  resigned = db.Column(db.Boolean(), index=True)
+  role_type = db.Column(db.String(64))
+  resigned = db.Column(db.Boolean(), index=True, default=False)
   password_hash = db.Column(db.String(128))
 
   promises = db.relationship('Promise', backref='officer', lazy='dynamic')
