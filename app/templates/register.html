@@ -35,6 +35,11 @@
     <p>{{error}}</p>
     {% endfor %}
   </div>
+  <div class="input-group passphrase">
+    {{form.passphrase.label}} {{form.passphrase()}} {% for error in form.passphrase.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
   {{form.submit()}}
 </form>
 
