@@ -10,7 +10,7 @@
 
     </ul>
     {% for promise in promises %}
-      <li>{{promise.body}}, (state: {{promise.state}})</li>
+      {% include "_promise.html" %}
     {% endfor %}
   </div>
 {% endblock %}
