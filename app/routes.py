@@ -13,9 +13,21 @@ def index():
 def profile():
     return render_template('profile.html')
 
-@app.route('/officer')
-def officers():
-    return render_template('officer.html', user=user)
+@app.route('/officer/<role>')
+def officer(role):
+    user = User.query.filter_by(role=role).first_or_404()
+    promises = [
+        {'officer': user,
+        'user_id': user.id, 'body': "Promise 1 goes here", "actionable": True,
+        "state": 3},
+        {'officer': user,
+        'user_id': user.id, 'body': "Promise 2 goes here", "actionable": False,
+        "state": 5},
+        {'officer': user,
+        'user_id': user.id, 'body': "Promise 3 goes here", "actionable": True,
+        "state": 1}
+    ]
+    return render_template('officer.html', user=user, promises=promises)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():

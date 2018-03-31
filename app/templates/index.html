@@ -3,4 +3,6 @@
 {% block content %}
   <h1>Welcome to TheyWorkForGoldSU!</h1>
 
+  Current user: <a href="{{url_for('officer', role=current_user.role)}}">{{current_user.role}}</a>
+
 {% endblock %}
