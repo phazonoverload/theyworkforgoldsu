@@ -5,6 +5,9 @@
     <h2>{{user.name}}</h2>
     <p>Role: {{user.role}}</p>
     <p>role type: {{user.role_type}}</p>
+    {% if user.last_seen %}
+      <p>Last seen: {{user.last_seen}}</p>
+    {% endif %}
     <p>Promises:</p>
     <ul>
 

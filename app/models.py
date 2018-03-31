@@ -1,3 +1,4 @@
+from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from app import db, login
@@ -10,6 +11,7 @@ class User(UserMixin, db.Model):
   role_type = db.Column(db.String(64))
   resigned = db.Column(db.Boolean(), index=True, default=False)
   password_hash = db.Column(db.String(128))
+  last_seen = db.Column(db.DateTime, default=datetime.utcnow)
 
   promises = db.relationship('Promise', backref='officer', lazy='dynamic')
 
