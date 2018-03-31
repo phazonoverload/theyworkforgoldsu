@@ -1,3 +1,4 @@
+from flask import current_app
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
@@ -22,5 +23,5 @@ class RegistrationForm(FlaskForm):
   submit = SubmitField('Register')
 
   def validate_passphrase(self, passphrase):
-    if passphrase.data != "Druid!":
+    if passphrase.data != current_app.config['PASSPHRASE']:
       raise ValidationError("Passphrase is not correct")
