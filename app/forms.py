@@ -1,7 +1,12 @@
+from app import db
 from flask import current_app
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, TextAreaField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
+
+class AdminRolesForm(FlaskForm):
+  title = StringField('Role Title', validators=[DataRequired()])
+  slug = StringField('Slug', validators=[DataRequired()])
 
 class LoginForm(FlaskForm):
   email = StringField('Email Address', validators=[DataRequired(), Email()])
@@ -25,3 +30,7 @@ class RegistrationForm(FlaskForm):
   def validate_passphrase(self, passphrase):
     if passphrase.data != current_app.config['PASSPHRASE']:
       raise ValidationError("Passphrase is not correct")
+
+class UpdateForm(FlaskForm):
+  update = TextAreaField('Update', validators=[DataRequired()])
+  submit = SubmitField('Submit')

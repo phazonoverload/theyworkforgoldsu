@@ -2,7 +2,7 @@ from datetime import datetime
 from flask import render_template, flash, redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
-from app.forms import LoginForm, RegistrationForm
+from app.forms import LoginForm, RegistrationForm, UpdateForm
 from app.models import User
 
 @app.before_request
@@ -11,30 +11,24 @@ def before_request():
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/profile')
-@login_required
-def profile():
-    return render_template('profile.html')
+@app.route('/admin')
+def admin():
+    return render_template('admin.html')
 
-@app.route('/officer/<role>')
+@app.route('/officer/<role>', methods=['GET', 'POST'])
 def officer(role):
     user = User.query.filter_by(role=role).first_or_404()
-    promises = [
-        {'officer': user,
-        'user_id': user.id, 'body': "Promise 1 goes here", "actionable": True,
-        "state": 3},
-        {'officer': user,
-        'user_id': user.id, 'body': "Promise 2 goes here", "actionable": False,
-        "state": 5},
-        {'officer': user,
-        'user_id': user.id, 'body': "Promise 3 goes here", "actionable": True,
-        "state": 1}
-    ]
-    return render_template('officer.html', user=user, promises=promises)
+    form = UpdateForm()
+    # # #
+    # if form.validate_on_submit():
+        # update = 
+    # Will need to pass promises
+    return render_template('officer.html', user=user)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():

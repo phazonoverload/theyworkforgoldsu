@@ -8,12 +8,22 @@
     {% if user.last_seen %}
       <p>Last seen: {{user.last_seen}}</p>
     {% endif %}
+    <div style="background:lightgrey">
+      <h3>Update your membership</h3>
+      <form action="" method="POST">
+        {{form.hidden_tag()}}
+        <div class="input-group">
+          {{form.update.label}} {{form.update()}} {% for error in form.update.errors %}
+          <p>{{error}}</p>
+          {% endfor %}
+        </div>
+        {{form.submit()}}
+      </form>
+
+    </div>
     <p>Promises:</p>
     <ul>
-
+       {% for promise in promises %} {% include "_promise.html" %} {% endfor %}
     </ul>
-    {% for promise in promises %}
-      {% include "_promise.html" %}
-    {% endfor %}
   </div>
 {% endblock %}
