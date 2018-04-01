@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>Sign In</h1>
+
+<form action="" method="POST">
+  {{form.hidden_tag()}}
+  <div class="input-group">
+    {{form.body.label}} {{form.body()}} {% for error in form.body.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  <div class="input-group">
+    {{form.actionable.label}} {{form.actionable()}} {% for error in form.actionable.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  <div class="input-group">
+    {{form.user_id.label}} {{form.user_id()}} {% for error in form.user_id.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  <div class="input-group">
+    {{form.passphrase.label}} {{form.passphrase()}} {% for error in form.passphrase.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  {{form.submit()}}
+</form>
+
+{% endblock %}

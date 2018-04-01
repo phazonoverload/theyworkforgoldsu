@@ -1,5 +1,5 @@
 from app import db
-from app.models import Role
+from app.models import Role, User
 from flask import current_app
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, TextAreaField
@@ -17,7 +17,6 @@ class LoginForm(FlaskForm):
 ########
 
 class RegistrationForm(FlaskForm):
-
   name = StringField('Full Name', validators=[DataRequired()])
   email = StringField('Email Address', validators=[DataRequired(), Email()])
   twitter = StringField('Twitter username (no @)')
@@ -33,8 +32,22 @@ class RegistrationForm(FlaskForm):
 
 ########
 
-class UpdateForm(FlaskForm):
-  update = TextAreaField('Update', validators=[DataRequired()])
+class NewPromiseForm(FlaskForm):
+  body = TextAreaField('Description', validators=[DataRequired()])
+  actionable = BooleanField('Is this actionable?', validators=[DataRequired()])
+  user_id = QuerySelectField(query_factory=lambda: User.query, allow_blank=True, get_label='name')
+  passphrase = StringField('Passphrase', validators=[DataRequired()])
   submit = SubmitField('Submit')
+
+  def validate_passphrase(self, passphrase):
+    if passphrase.data != current_app.config['ADMIN_PASS']:
+      raise ValidationError("Passphrase is not correct")
+
+# id = db.Column(db.Integer, primary_key=True)
+#   user_id = db.Column(db.Integer())
+#   body = db.Column(db.String(128))
+#   actionable = db.Column(db.Boolean(), index=True)
+#   state = db.Column(db.Integer())
+#   user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 ########

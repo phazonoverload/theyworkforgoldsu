@@ -2,7 +2,7 @@ from datetime import datetime
 from flask import render_template, flash, redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
-from app.forms import LoginForm, RegistrationForm
+from app.forms import LoginForm, RegistrationForm, NewPromiseForm
 from app.models import User, Role, Update, Promise
 
 @app.before_request
@@ -71,3 +71,13 @@ def logout():
 @app.route('/admin')
 def admin():
     return render_template('admin.html')
+
+@app.route('/admin/promise', methods=['GET', 'POST'])
+def admin_promise():
+    form = NewPromiseForm()
+    if form.validate_on_submit():
+        promise = Promise(body=str(form.body.data), actionable=form.actionable.data, user_id=form.user_id.data.id)
+        db.session.add(promise)
+        db.session.commit()
+        flash("New Promise added")
+    return render_template('admin_promise.html', form=form)
