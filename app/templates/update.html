@@ -1,0 +1,13 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+<h2>Update your members</h2>
+
+<!-- New text field for every promise for this user -->
+<p>Promises:</p>
+<ul>
+  {% for promise in promises %} {% include "_promise.html" %} {% endfor %}
+</ul>
+
+{% endblock %}

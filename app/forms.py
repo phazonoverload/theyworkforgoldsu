@@ -43,11 +43,8 @@ class NewPromiseForm(FlaskForm):
     if passphrase.data != current_app.config['ADMIN_PASS']:
       raise ValidationError("Passphrase is not correct")
 
-# id = db.Column(db.Integer, primary_key=True)
-#   user_id = db.Column(db.Integer())
-#   body = db.Column(db.String(128))
-#   actionable = db.Column(db.Boolean(), index=True)
-#   state = db.Column(db.Integer())
-#   user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+########
+
+# New Update Form
 
 ########

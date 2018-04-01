@@ -16,6 +16,12 @@ def officer(role):
     promises = Promise.query.filter_by(user_id=user.id).all()
     return render_template('officer.html', user=user, role=role, promises=promises)
 
+@app.route('/update', methods=['GET', 'POST'])
+@login_required
+def update():
+    promises = Promise.query.filter_by(user_id=current_user.id)
+    return render_template("update.html", promises=promises)
+
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     # If already logged in, chuck them back to home
