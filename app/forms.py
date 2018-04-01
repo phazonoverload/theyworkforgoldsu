@@ -1,12 +1,12 @@
 from app import db
+from app.models import Role
 from flask import current_app
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, TextAreaField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
+from wtforms_sqlalchemy.fields import QuerySelectField
 
-class AdminRolesForm(FlaskForm):
-  title = StringField('Role Title', validators=[DataRequired()])
-  slug = StringField('Slug', validators=[DataRequired()])
+########
 
 class LoginForm(FlaskForm):
   email = StringField('Email Address', validators=[DataRequired(), Email()])
@@ -14,14 +14,14 @@ class LoginForm(FlaskForm):
   remember_me = BooleanField('Remember Me')
   submit = SubmitField('Sign In')
 
+########
+
 class RegistrationForm(FlaskForm):
-  username = StringField('Full Name', validators=[DataRequired()])
+
+  name = StringField('Full Name', validators=[DataRequired()])
   email = StringField('Email Address', validators=[DataRequired(), Email()])
-
-  role = SelectField('Role Title', choices=[("president", "President"), ("education", "Education Officer"), ("campaigns-activities", "Campaigns & Activities Officer"), ("welfare-diversity", "Welfare & Diversity Officer"), ("wired", "Wired Radio Station Managers"), ("housing", "Housing Officer"), ("sports", "Sports Officer"), ("bme", "Black and Minority Ethnic Students' Officer"), ("womens", "Women's Officer"), ("trans-nb", "Trans and Non-Binary Students' Officer"), ("campaigns", "Campaigns Officer"), ("leopard", "Leopard Editor"), ("trustees", "Student Trustees")], validators=[DataRequired()])
-
-  role_type = SelectField('Select Type', choices=[("ft", "Full Time Sabbatical"),("pt", "Part Time"), ("media", "Media Manager")], validators=[DataRequired()])
-
+  twitter = StringField('Twitter username (no @)')
+  role = QuerySelectField(query_factory=lambda: Role.query, allow_blank=True, get_label='label')
   password = PasswordField('Password', validators=[DataRequired()])
   password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
   passphrase = StringField('Passphrase', validators=[DataRequired()])
@@ -31,6 +31,10 @@ class RegistrationForm(FlaskForm):
     if passphrase.data != current_app.config['PASSPHRASE']:
       raise ValidationError("Passphrase is not correct")
 
+########
+
 class UpdateForm(FlaskForm):
   update = TextAreaField('Update', validators=[DataRequired()])
   submit = SubmitField('Submit')
+
+########

@@ -2,8 +2,8 @@ from datetime import datetime
 from flask import render_template, flash, redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, UpdateForm
-from app.models import User
+from app.forms import LoginForm, RegistrationForm
+from app.models import User, Role, Update, Promise
 
 @app.before_request
 def before_request():
@@ -11,19 +11,14 @@ def before_request():
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
 
-
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/admin')
-def admin():
-    return render_template('admin.html')
-
 @app.route('/officer/<role>', methods=['GET', 'POST'])
 def officer(role):
     user = User.query.filter_by(role=role).first_or_404()
-    form = UpdateForm()
+    # form = UpdateForm()
     # # #
     # if form.validate_on_submit():
         # update = 
@@ -45,7 +40,7 @@ def login():
             return redirect(url_for('login'))
         # Login the user and push back to home
         login_user(user, remember=form.remember_me.data)
-        return redirect(url_for('profile'))
+        return redirect(url_for('index'))
     # If request does not come with form data
     return render_template("login.html", form=form)
 
@@ -55,7 +50,7 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data, role=form.role.data, role_type=form.role_type.data)
+        user = User(name=str(form.name.data), email=str(form.email.data), role=str(form.role.data.value), twitter=str(form.twitter.data))
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -68,3 +63,11 @@ def register():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+###
+### ADMIN ROUTES
+###
+
+@app.route('/admin')
+def admin():
+    return render_template('admin.html')

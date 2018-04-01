@@ -6,7 +6,7 @@
 <form action="" method="POST">
   {{form.hidden_tag()}}
   <div class="input-group">
-    {{form.username.label}} {{form.username()}} {% for error in form.username.errors %}
+    {{form.name.label}} {{form.name()}} {% for error in form.name.errors %}
     <p>{{error}}</p>
     {% endfor %}
   </div>
@@ -16,12 +16,12 @@
     {% endfor %}
   </div>
   <div class="input-group">
-    {{form.role.label}} {{form.role()}} {% for error in form.role.errors %}
+    {{form.twitter.label}} {{form.twitter()}} {% for error in form.twitter.errors %}
     <p>{{error}}</p>
     {% endfor %}
   </div>
   <div class="input-group">
-    {{form.role_type.label}} {{form.role_type()}} {% for error in form.role_type.errors %}
+    {{form.role.label}} {{form.role()}} {% for error in form.role.errors %}
     <p>{{error}}</p>
     {% endfor %}
   </div>
