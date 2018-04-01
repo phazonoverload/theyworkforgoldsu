@@ -5,25 +5,16 @@ from app import app, db
 from app.forms import LoginForm, RegistrationForm, NewPromiseForm
 from app.models import User, Role, Update, Promise
 
-@app.before_request
-def before_request():
-    if current_user.is_authenticated:
-        current_user.last_seen = datetime.utcnow()
-        db.session.commit()
-
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/officer/<role>', methods=['GET', 'POST'])
+@app.route('/o/<role>', methods=['GET', 'POST'])
 def officer(role):
     user = User.query.filter_by(role=role).first_or_404()
-    # form = UpdateForm()
-    # # #
-    # if form.validate_on_submit():
-        # update = 
-    # Will need to pass promises
-    return render_template('officer.html', user=user)
+    role = Role.query.filter_by(value=role).first_or_404()
+    promises = Promise.query.filter_by(user_id=user.id).all()
+    return render_template('officer.html', user=user, role=role, promises=promises)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -81,3 +72,11 @@ def admin_promise():
         db.session.commit()
         flash("New Promise added")
     return render_template('admin_promise.html', form=form)
+
+###
+### REDIRECT ROUTES
+###
+
+@app.route('/o')
+def redirect_o(role):
+    return redirect(url_for('index'))

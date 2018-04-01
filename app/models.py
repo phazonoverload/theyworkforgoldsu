@@ -21,7 +21,7 @@ class User(UserMixin, db.Model):
   twitter = db.Column(db.String(64))
   resigned = db.Column(db.Boolean(), index=True, default=False)
   password_hash = db.Column(db.String(128))
-  last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+  signed_up = db.Column(db.DateTime, default=datetime.utcnow)
   promises = db.relationship("Promise")
   updates = db.relationship("Update")
 

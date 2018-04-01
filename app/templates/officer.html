@@ -3,24 +3,7 @@
 {% block content %}
   <div style="border: 1px solid black; margin-bottom: 2em;">
     <h2>{{user.name}}</h2>
-    <p>Role: {{user.role}}</p>
-    <p>role type: {{user.role_type}}</p>
-    {% if user.last_seen %}
-      <p>Last seen: {{user.last_seen}}</p>
-    {% endif %}
-    <div style="background:lightgrey">
-      <h3>Update your membership</h3>
-      <form action="" method="POST">
-        {{form.hidden_tag()}}
-        <div class="input-group">
-          {{form.update.label}} {{form.update()}} {% for error in form.update.errors %}
-          <p>{{error}}</p>
-          {% endfor %}
-        </div>
-        {{form.submit()}}
-      </form>
-
-    </div>
+    <p>Role: {{role.label}}</p>
     <p>Promises:</p>
     <ul>
        {% for promise in promises %} {% include "_promise.html" %} {% endfor %}
