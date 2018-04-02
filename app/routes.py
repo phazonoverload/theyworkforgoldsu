@@ -10,20 +10,30 @@ def index():
     users = User.query.all()
     return render_template('index.html', users=users)
 
-@app.route('/o/<role>', methods=['GET', 'POST'])
+@app.route('/people/<role>')
 def officer(role):
     user = User.query.filter_by(role_id=role).first_or_404()
+    # Show all promises from this user in this view
     return render_template('officer.html', user=user)
 
-@app.route('/update')
-@app.route('/update/')
-@login_required
-def update():
-    promises = Promise.query.filter_by(user_id=current_user.id)
-    return render_template("update.html", promises=promises)
+@app.route('/people/<role>/updates', methods=['GET', 'POST'])
+def officer_updates(role):
+    user = User.query.filter_by(role_id=role).first_or_404()
+    # Show all updates from this user in this view
+    return render_template('index.html', user=user)
 
-@app.route('/update/<id>', methods=['GET', 'POST'])
-@app.route('/update/<id>/', methods=['GET', 'POST'])
+@app.route('/promises')
+def promises():
+    # Show all promises
+    return render_template('index.html')
+
+@app.route('/promises/<id>')
+def single_promise(id):
+    # Show single promise and all updates related to it
+    return render_template('index.html')
+
+@app.route('/promises/<id>/update', methods=['GET', 'POST'])
+@app.route('/promises/<id>/update/', methods=['GET', 'POST'])
 @login_required
 def update_promise(id):
     promise = Promise.query.filter_by(id=id).first_or_404()
@@ -33,8 +43,31 @@ def update_promise(id):
         db.session.add(update)
         db.session.commit()
         flash("New update submitted!")
-        return render_template('officer.html', user=current_user)
+        return render_template('officer.html', user=user)
     return render_template("update_single.html", promise=promise, form=form)
+
+@app.route('/updates')
+def updates():
+    # Show all updates
+    return render_template('index.html')
+
+###
+### AUTH ROUTES
+###
+
+@app.route("/register", methods=['GET', 'POST'])
+def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(name=str(form.name.data), email=str(form.email.data), role=form.role.data, twitter=str(form.twitter.data))
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash("New account registered")
+        return redirect(url_for("login"))
+    return render_template("register.html", form=form)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -55,21 +88,6 @@ def login():
     # If request does not come with form data
     return render_template("login.html", form=form)
 
-@app.route("/register", methods=['GET', 'POST'])
-def register():
-    if current_user.is_authenticated:
-        return redirect(url_for('index'))
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(name=str(form.name.data), email=str(form.email.data), role=form.role.data, twitter=str(form.twitter.data))
-        user.set_password(form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        flash("New account registered")
-        return redirect(url_for("login"))
-    return render_template("register.html", form=form)
-
-
 @app.route("/logout")
 def logout():
     logout_user()
@@ -83,7 +101,7 @@ def logout():
 def admin():
     return render_template('admin.html')
 
-@app.route('/admin/promise', methods=['GET', 'POST'])
+@app.route('/admin/promises', methods=['GET', 'POST'])
 def admin_promise():
     form = NewPromiseForm()
     if form.validate_on_submit():
@@ -97,6 +115,6 @@ def admin_promise():
 ### REDIRECT ROUTES
 ###
 
-@app.route('/o')
+@app.route('/people')
 def redirect_o(role):
     return redirect(url_for('index'))
