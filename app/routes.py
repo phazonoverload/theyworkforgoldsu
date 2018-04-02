@@ -15,11 +15,19 @@ def officer(role):
     user = User.query.filter_by(role_id=role).first_or_404()
     return render_template('officer.html', user=user)
 
-@app.route('/update', methods=['GET', 'POST'])
+@app.route('/update')
+@app.route('/update/')
 @login_required
 def update():
     promises = Promise.query.filter_by(user_id=current_user.id)
     return render_template("update.html", promises=promises)
+
+@app.route('/update/<id>', methods=['GET', 'POST'])
+@app.route('/update/<id>/', methods=['GET', 'POST'])
+@login_required
+def update_promise(id):
+    promise = Promise.query.filter_by(id=id).first_or_404()
+    return render_template("update_single.html", promise=promise)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
