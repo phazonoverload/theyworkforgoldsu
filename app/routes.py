@@ -7,14 +7,13 @@ from app.models import User, Role, Update, Promise
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    users = User.query.all()
+    return render_template('index.html', users=users)
 
 @app.route('/o/<role>', methods=['GET', 'POST'])
 def officer(role):
-    user = User.query.filter_by(role=role).first_or_404()
-    role = Role.query.filter_by(value=role).first_or_404()
-    promises = Promise.query.filter_by(user_id=user.id).all()
-    return render_template('officer.html', user=user, role=role, promises=promises)
+    user = User.query.filter_by(role_id=role).first_or_404()
+    return render_template('officer.html', user=user)
 
 @app.route('/update', methods=['GET', 'POST'])
 @login_required
@@ -47,7 +46,7 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(name=str(form.name.data), email=str(form.email.data), role=str(form.role.data.value), twitter=str(form.twitter.data))
+        user = User(name=str(form.name.data), email=str(form.email.data), role=form.role.data, twitter=str(form.twitter.data))
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()

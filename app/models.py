@@ -4,26 +4,24 @@ from flask_login import UserMixin
 from app import db, login
 
 class Role(db.Model):
-  __tablename__ = 'role'
   value = db.Column(db.String(128), index=True, unique=True, primary_key=True)
   label = db.Column(db.String(128), unique=True)
-  role_type = db.Column(db.String(128), unique=True)
+  role_type = db.Column(db.String(128))
+  users = db.relationship('User', backref='role', lazy='dynamic')
 
   def __repr__(self):
     return '[Role {}]'.format(self.label)
 
 class User(UserMixin, db.Model):
-  __tablename__ = 'user'
   id = db.Column(db.Integer, primary_key=True)
+  role_id = db.Column(db.String(64), db.ForeignKey('role.value'), index=True)
   name = db.Column(db.String(128), index=True, unique=True)
   email = db.Column(db.String(128), index=True, unique=True)
-  role = db.Column(db.String(64), index=True, unique=True)
   twitter = db.Column(db.String(64))
   resigned = db.Column(db.Boolean(), index=True, default=False)
   password_hash = db.Column(db.String(128))
   signed_up = db.Column(db.DateTime, default=datetime.utcnow)
-  promises = db.relationship("Promise")
-  updates = db.relationship("Update")
+  promises=db.relationship('Promise', backref='user', lazy='dynamic')
 
   def __repr__(self):
     return '[User {}]'.format(self.name)
@@ -34,30 +32,27 @@ class User(UserMixin, db.Model):
   def check_password(self, password):
     return check_password_hash(self.password_hash, password)
 
-@login.user_loader
-def load_user(id):
-  return User.query.get(int(id))
-
 class Promise(db.Model):
-  __tablename__ = 'promise'
   id = db.Column(db.Integer, primary_key=True)
-  user_id = db.Column(db.Integer())
   body = db.Column(db.String(128))
   actionable = db.Column(db.Boolean(), index=True)
   state = db.Column(db.Integer())
-  user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+  user_id = db.Column(db.Integer, db.ForeignKey('user.id'), index=True)
 
   def __repr__(self):
     return '[Promise {}]'.format(self.body)
 
 class Update(db.Model):
-  __tablename__ = 'update'
   id = db.Column(db.Integer, primary_key=True)
-  user_id = db.Column(db.Integer())
   month = db.Column(db.String(128))
   datetime = db.Column(db.DateTime, default=datetime.utcnow)
   general = db.Column(db.String(1000))
-  user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+  # user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+  # promise_id = db.Column(db.Integer, db.ForeignKey('promise.id'))
 
   def __repr__(self):
     return '[Update {}]'.format(self.general)
+
+@login.user_loader
+def load_user(id):
+  return User.query.get(int(id))

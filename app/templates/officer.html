@@ -3,10 +3,12 @@
 {% block content %}
   <div style="border: 1px solid black; margin-bottom: 2em;">
     <h2>{{user.name}}</h2>
-    <p>Role: {{role.label}}</p>
+    <p>Role: {{user.role.label}}</p>
     <p>Promises:</p>
     <ul>
-       {% for promise in promises %} {% include "_promise.html" %} {% endfor %}
+      {% for promise in user.promises %} 
+        {% include "_promise.html" %} 
+      {% endfor %}
     </ul>
   </div>
 {% endblock %}
