@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>New role</h1>
+
+<form action="" method="POST">
+  {{form.hidden_tag()}}
+  <div class="input-group">
+    {{form.label.label}} {{form.label()}} {% for error in form.label.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  <div class="input-group">
+    {{form.value.label}} {{form.value()}} {% for error in form.value.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  <div class="input-group">
+    {{form.role_type.label}} {{form.role_type()}} {% for error in form.role_type.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  <div class="input-group">
+    {{form.passphrase.label}} {{form.passphrase()}} {% for error in form.passphrase.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  {{form.submit()}}
+</form>
+
+{% endblock %}

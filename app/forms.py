@@ -46,6 +46,19 @@ class NewPromiseForm(FlaskForm):
 
 ########
 
+class NewRoleForm(FlaskForm):
+  label = StringField('Label', validators=[DataRequired()])
+  value = StringField('Slug', validators=[DataRequired()])
+  role_type = SelectField('Role Type',choices=[('ft', 'Full Time Officer'), ('pt', 'Part Time Officer'), ('media', 'Media Manager')])
+  passphrase = StringField('Passphrase', validators=[DataRequired()])
+  submit = SubmitField('Submit')
+
+  def validate_passphrase(self, passphrase):
+    if passphrase.data != current_app.config['ADMIN_PASS']:
+      raise ValidationError("Passphrase is not correct")
+
+########
+
 class NewUpdateForm(FlaskForm):
   body = TextAreaField('Update Text', validators=[DataRequired()])
   submit = SubmitField('Submit')

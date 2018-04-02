@@ -2,7 +2,7 @@ from datetime import datetime
 from flask import render_template, flash, redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, NewPromiseForm, NewUpdateForm
+from app.forms import LoginForm, RegistrationForm, NewPromiseForm, NewUpdateForm, NewRoleForm
 from app.models import User, Role, Update, Promise
 
 @app.route('/')
@@ -111,6 +111,16 @@ def admin_promise():
         db.session.commit()
         flash("New Promise added")
     return render_template('admin_promise.html', form=form)
+
+@app.route('/admin/roles', methods=['GET', 'POST'])
+def admin_role():
+    form = NewRoleForm()
+    if form.validate_on_submit():
+        role = Role(label=str(form.label.data), value=str(form.value.data), role_type=str(form.role_type.data))
+        db.session.add(role)
+        db.session.commit()
+        flash("New Role added")
+    return render_template('admin_role.html', form=form)
 
 @app.route('/admin/people')
 def admin_people_list():
