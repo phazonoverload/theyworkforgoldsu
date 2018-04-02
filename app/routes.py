@@ -111,6 +111,16 @@ def admin_promise():
         flash("New Promise added")
     return render_template('admin_promise.html', form=form)
 
+@app.route('/admin/people')
+def admin_people_list():
+    # List users and their edit links here
+    return render_template('index.html')
+
+@app.route('/admin/people/<role>', methods=['GET', 'POST'])
+def admin_people_edit(role):
+    # Show single user edit with passphrase
+    return render_template('index.html')
+
 ###
 ### REDIRECT ROUTES
 ###
