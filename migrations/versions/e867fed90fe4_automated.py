@@ -1,8 +1,8 @@
 """“automated”
 
-Revision ID: 3ba1f655f1c4
+Revision ID: e867fed90fe4
 Revises: 
-Create Date: 2018-04-02 22:00:01.992949
+Create Date: 2018-04-02 23:14:11.850687
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '3ba1f655f1c4'
+revision = 'e867fed90fe4'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -44,9 +44,9 @@ def upgrade():
     op.create_index(op.f('ix_user_role_id'), 'user', ['role_id'], unique=False)
     op.create_table('promise',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('body', sa.String(length=128), nullable=True),
+    sa.Column('title', sa.String(length=128), nullable=True),
+    sa.Column('body', sa.String(length=256), nullable=True),
     sa.Column('actionable', sa.Boolean(), nullable=True),
-    sa.Column('state', sa.Integer(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
     sa.PrimaryKeyConstraint('id')
