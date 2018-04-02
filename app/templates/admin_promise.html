@@ -5,6 +5,11 @@
 <form action="" method="POST">
   {{form.hidden_tag()}}
   <div class="input-group">
+    {{form.title.label}} {{form.title()}} {% for error in form.title.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  <div class="input-group">
     {{form.body.label}} {{form.body()}} {% for error in form.body.errors %}
     <p>{{error}}</p>
     {% endfor %}
