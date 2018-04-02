@@ -3,6 +3,14 @@
 {% block content %}
 <h1>{{promise.body}}</h1>
 
-<code>Update form to go here</code>
+<form action="" method="POST">
+  {{form.hidden_tag()}}
+  <div class="input-group">
+    {{form.body.label}} {{form.body()}} {% for error in form.body.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  {{form.submit()}}
+</form>
 
 {% endblock %}

@@ -21,7 +21,8 @@ class User(UserMixin, db.Model):
   resigned = db.Column(db.Boolean(), index=True, default=False)
   password_hash = db.Column(db.String(128))
   signed_up = db.Column(db.DateTime, default=datetime.utcnow)
-  promises=db.relationship('Promise', backref='user', lazy='dynamic')
+  promises = db.relationship('Promise', backref='user', lazy='dynamic')
+  updates = db.relationship('Update', backref='user', lazy='dynamic')
 
   def __repr__(self):
     return '[User {}]'.format(self.name)
@@ -38,17 +39,17 @@ class Promise(db.Model):
   actionable = db.Column(db.Boolean(), index=True)
   state = db.Column(db.Integer())
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'), index=True)
+  updates = db.relationship('Update', backref='promise', lazy='dynamic')
 
   def __repr__(self):
     return '[Promise {}]'.format(self.body)
 
 class Update(db.Model):
   id = db.Column(db.Integer, primary_key=True)
-  month = db.Column(db.String(128))
   datetime = db.Column(db.DateTime, default=datetime.utcnow)
-  general = db.Column(db.String(1000))
-  # user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-  # promise_id = db.Column(db.Integer, db.ForeignKey('promise.id'))
+  body = db.Column(db.String(1000))
+  user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+  promise_id = db.Column(db.Integer, db.ForeignKey('promise.id'))
 
   def __repr__(self):
     return '[Update {}]'.format(self.general)

@@ -45,6 +45,8 @@ class NewPromiseForm(FlaskForm):
 
 ########
 
-# New Update Form
+class NewUpdateForm(FlaskForm):
+  body = TextAreaField('Update Text', validators=[DataRequired()])
+  submit = SubmitField('Submit')
 
 ########

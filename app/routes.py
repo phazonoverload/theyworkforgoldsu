@@ -2,7 +2,7 @@ from datetime import datetime
 from flask import render_template, flash, redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, NewPromiseForm
+from app.forms import LoginForm, RegistrationForm, NewPromiseForm, NewUpdateForm
 from app.models import User, Role, Update, Promise
 
 @app.route('/')
@@ -27,7 +27,14 @@ def update():
 @login_required
 def update_promise(id):
     promise = Promise.query.filter_by(id=id).first_or_404()
-    return render_template("update_single.html", promise=promise)
+    form = NewUpdateForm()
+    if form.validate_on_submit():
+        update = Update(body=str(form.body.data), user_id=current_user.id, promise_id=promise.id)
+        db.session.add(update)
+        db.session.commit()
+        flash("New update submitted!")
+        return render_template('officer.html', user=current_user)
+    return render_template("update_single.html", promise=promise, form=form)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
