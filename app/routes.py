@@ -100,6 +100,7 @@ def logout():
 
 @app.route('/admin')
 def admin():
+    # Also list all users here
     return render_template('admin.html')
 
 @app.route('/admin/promises', methods=['GET', 'POST'])
@@ -121,11 +122,6 @@ def admin_role():
         db.session.commit()
         flash("New Role added")
     return render_template('admin_role.html', form=form)
-
-@app.route('/admin/people')
-def admin_people_list():
-    # List users and their edit links here
-    return render_template('index.html')
 
 @app.route('/admin/people/<role>', methods=['GET', 'POST'])
 def admin_people_edit(role):
