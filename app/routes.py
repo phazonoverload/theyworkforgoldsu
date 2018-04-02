@@ -43,7 +43,7 @@ def update_promise(id):
         db.session.add(update)
         db.session.commit()
         flash("New update submitted!")
-        return render_template('officer.html', user=current_user)
+        return redirect('index.html')
     return render_template("update_single.html", promise=promise, form=form)
 
 @app.route('/updates')
