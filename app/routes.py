@@ -48,8 +48,8 @@ def update_promise(id):
 
 @app.route('/updates')
 def updates():
-    # Show all updates
-    return render_template('index.html')
+    updates = Update.query.order_by(Update.datetime.desc()).all()
+    return render_template('updates.html', updates=updates)
 
 @app.route('/edit')
 def edit_profile():
