@@ -5,10 +5,11 @@
     <h2>{{user.name}}: <code>{{user.id}}</code></h2>
     <p>Role: {{user.role.label}}</p>
     <a href="{{url_for('officer_updates', role=user.role.value)}}">See updates</a>
-    <p>Promises:</p>
+    <p>Promises {{user.promises.count()}}:</p>
     <ul>
       {% for promise in user.promises %}
         {% include "_promise.html" %}
+         {{promise.updates.count()}}
       {% endfor %}
     </ul>
   </div>

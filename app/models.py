@@ -42,7 +42,7 @@ class Promise(db.Model):
   updates = db.relationship('Update', backref='promise', lazy='dynamic')
 
   def __repr__(self):
-    return '[Promise {}]'.format(self.body)
+    return '[Promise {}]'.format(self.title)
 
 class Update(db.Model):
   id = db.Column(db.Integer, primary_key=True)
