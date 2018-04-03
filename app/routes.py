@@ -13,7 +13,6 @@ def index():
 @app.route('/people/<role>')
 def officer(role):
     user = User.query.filter_by(role_id=role).first_or_404()
-    # Show number of updates per promise and date of latest
     return render_template('officer.html', user=user)
 
 @app.route('/people/<role>/updates', methods=['GET', 'POST'])
