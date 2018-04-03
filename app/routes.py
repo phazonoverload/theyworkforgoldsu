@@ -50,6 +50,11 @@ def updates():
     # Show all updates
     return render_template('index.html')
 
+@app.route('/edit')
+def edit_profile():
+    # Profile edit - should use update tools
+    return render_template('index.html')
+
 ###
 ### AUTH ROUTES
 ###
@@ -123,7 +128,6 @@ def admin_role():
 
 @app.route('/admin/people/<role>', methods=['GET', 'POST'])
 def admin_people_edit(role):
-    # Show single user edit with passphrase
     return render_template('index.html')
 
 ###
