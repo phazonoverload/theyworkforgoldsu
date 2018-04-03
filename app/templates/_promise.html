@@ -1,5 +1,5 @@
 <li>
-  <b>{{promise.body}}</b>
+  <b>{{promise.title}}</b>
   {% if current_user.is_authenticated %}
     <a href="{{url_for('update_promise', id=promise.id)}}">Update</a>
   {% endif %}
