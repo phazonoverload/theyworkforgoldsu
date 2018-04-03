@@ -63,11 +63,16 @@ def edit_profile():
         flash('Changes to account made!')
     return render_template('edit.html', form=form)
 
-@app.route('/edit/password')
+@app.route('/edit/password', methods=['GET', 'POST'])
 @login_required
 def edit_password():
-    # Profile edit - should use update tools
-    return render_template('index.html')
+    form = EditPasswordForm()
+    if form.validate_on_submit():
+        if current_user.check_password(form.old_password.data):
+            current_user.set_password(form.new_password.data)
+            db.session.commit()
+            flash('Password changed')
+    return render_template('edit_password.html', form=form)
 
 ###
 ### AUTH ROUTES
