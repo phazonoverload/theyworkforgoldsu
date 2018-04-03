@@ -23,8 +23,9 @@ def officer_updates(role):
 
 @app.route('/promises')
 def promises():
-    promises = Promise.query.order_by(Promise.actionable).order_by(Promise.title).all()
-    return render_template('promises.html', promises=promises)
+    promises_a = Promise.query.filter_by(actionable=True).order_by(Promise.title).all()
+    promises_na = Promise.query.filter_by(actionable=False).order_by(Promise.title).all()
+    return render_template('promises.html', promises_a=promises_a, promises_na=promises_na)
 
 @app.route('/promises/<id>')
 def single_promise(id):

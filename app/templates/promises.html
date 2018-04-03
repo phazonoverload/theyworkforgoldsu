@@ -2,9 +2,17 @@
 
 {% block content %}
   <h2>All promises from all officers</h2>
+
+  <h3>Actionable:</h3>
   <ul>
-    {% for promise in promises %} 
-    {% include "_promise.html" %} 
+    {% for promise in promises_a %} {% include "_promise.html" %}
+    <small>{{promise.user.name}}</small>
+    {% endfor %}
+  </ul>
+  
+  <h3>Not actionable:</h3>
+  <ul>
+    {% for promise in promises_b %} {% include "_promise.html" %}
     <small>{{promise.user.name}}</small>
     {% endfor %}
   </ul>
