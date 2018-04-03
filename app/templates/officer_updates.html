@@ -6,7 +6,7 @@
   <a href="{{url_for('officer', role=user.role.value)}}">See promises</a>
   <p>Updates:</p>
   <ul>
-    {% for update in updates %} 
+    {% for update in updates|sort(attribute='datetime', reverse=true) %} 
        {% include "_update.html" %}
     {% endfor %}
   </ul>

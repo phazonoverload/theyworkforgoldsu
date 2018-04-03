@@ -28,8 +28,8 @@ def promises():
 
 @app.route('/promises/<id>')
 def single_promise(id):
-    # Show single promise and all updates related to it
-    return render_template('index.html')
+    promise = Promise.query.filter_by(id=id).first_or_404()
+    return render_template('promise_single.html', promise=promise)
 
 @app.route('/promises/<id>/update', methods=['GET', 'POST'])
 @app.route('/promises/<id>/update/', methods=['GET', 'POST'])

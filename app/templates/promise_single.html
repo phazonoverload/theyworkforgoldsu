@@ -1,0 +1,12 @@
+{% extends "base.html" %} 
+
+{% block content %}
+  <h1>{{promise.title}}</h1>
+  <h2>{{promise.body}}</h2>
+  <h3>Updates:</h3>
+  <ul>
+    {% for update in promise.updates|sort(attribute='datetime', reverse=true) %} 
+      {% include "_update.html" %}
+    {% endfor %}
+  </ul>
+{% endblock %}
