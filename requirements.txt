@@ -5,3 +5,4 @@ Flask-Migrate==2.1.1
 Flask-SQLAlchemy==2.3.2
 Flask-WTF==0.14.2
 WTForms-SQLAlchemy==0.1
+Flask-Restless==0.17.0

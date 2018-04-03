@@ -33,7 +33,6 @@ def single_promise(id):
     return render_template('promise_single.html', promise=promise)
 
 @app.route('/promises/<id>/update', methods=['GET', 'POST'])
-@app.route('/promises/<id>/update/', methods=['GET', 'POST'])
 @login_required
 def update_promise(id):
     promise = Promise.query.filter_by(id=id).first_or_404()
@@ -73,6 +72,10 @@ def edit_password():
             db.session.commit()
             flash('Password changed')
     return render_template('edit_password.html', form=form)
+
+@app.route('/api')
+def api_docs():
+    return render_template('api.html')
 
 ###
 ### AUTH ROUTES
@@ -143,10 +146,6 @@ def admin_role():
         db.session.commit()
         flash("New Role added")
     return render_template('admin_role.html', form=form)
-
-# @app.route('/admin/people/<role>', methods=['GET', 'POST'])
-# def admin_people_edit(role):
-#     return render_template('index.html')
 
 ###
 ### REDIRECT ROUTES

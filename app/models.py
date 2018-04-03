@@ -4,7 +4,8 @@ from flask_login import UserMixin
 from app import db, login
 
 class Role(db.Model):
-  value = db.Column(db.String(128), index=True, unique=True, primary_key=True)
+  id = db.Column(db.Integer, unique=True, primary_key=True)
+  value = db.Column(db.String(128), index=True, unique=True)
   label = db.Column(db.String(128), unique=True)
   role_type = db.Column(db.String(128))
   users = db.relationship('User', backref='role', lazy='dynamic')
@@ -17,7 +18,7 @@ class User(UserMixin, db.Model):
   role_id = db.Column(db.String(64), db.ForeignKey('role.value'), index=True)
   name = db.Column(db.String(128), index=True, unique=True)
   email = db.Column(db.String(128), index=True, unique=True)
-  twitter = db.Column(db.String(64))
+  twitter = db.Column(db.String(64), default='goldsmithssu')
   resigned = db.Column(db.Boolean(), index=True, default=False)
   password_hash = db.Column(db.String(128))
   signed_up = db.Column(db.DateTime, default=datetime.utcnow)

@@ -53,8 +53,8 @@ User auth | /login, /register, /logout
 Sessions for user | Use of `login_user()` in `/app/routes.py`
 Passwords as hashes | `set_password()` and `check_password()` functions in `User` model
 A way to logout | /logout
-Bonus: Salts | TBC
+Bonus: Salts | werkzeug.security's `generate_password_hash()` and `check_password_hash()` functions salt hashes by default
 Bonus: flask-login usage | Use of `current_user`, `login_user`, `logout_user` and `login_required`
-Basic API | TBC: docs will be at /api
+Basic API | TBC: docs at /api
 Bonus: GET, POST, PUSH and DELETE via API | Not suitable for this project
-Bonus: flask-restful | TBC
+Bonus: flask-restful | flask-restless was sufficient
