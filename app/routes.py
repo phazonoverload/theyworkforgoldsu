@@ -104,7 +104,6 @@ def logout():
 
 @app.route('/admin')
 def admin():
-    # Also list all users here
     return render_template('admin.html')
 
 @app.route('/admin/promises', methods=['GET', 'POST'])
