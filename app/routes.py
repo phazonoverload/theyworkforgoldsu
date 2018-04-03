@@ -23,8 +23,8 @@ def officer_updates(role):
 
 @app.route('/promises')
 def promises():
-    # Show all promises
-    return render_template('index.html')
+    promises = Promise.query.order_by(Promise.actionable).order_by(Promise.title).all()
+    return render_template('promises.html', promises=promises)
 
 @app.route('/promises/<id>')
 def single_promise(id):

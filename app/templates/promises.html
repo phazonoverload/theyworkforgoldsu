@@ -1,0 +1,11 @@
+{% extends "base.html" %} 
+
+{% block content %}
+  <h2>All promises from all officers</h2>
+  <ul>
+    {% for promise in promises %} 
+    {% include "_promise.html" %} 
+    <small>{{promise.user.name}}</small>
+    {% endfor %}
+  </ul>
+{% endblock %}
