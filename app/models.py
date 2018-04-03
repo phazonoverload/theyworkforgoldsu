@@ -52,7 +52,7 @@ class Update(db.Model):
   promise_id = db.Column(db.Integer, db.ForeignKey('promise.id'))
 
   def __repr__(self):
-    return '[Update {}]'.format(self.general)
+    return '[Update {}]'.format(self.body)
 
 @login.user_loader
 def load_user(id):

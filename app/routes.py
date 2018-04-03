@@ -20,8 +20,8 @@ def officer(role):
 @app.route('/people/<role>/updates', methods=['GET', 'POST'])
 def officer_updates(role):
     user = User.query.filter_by(role_id=role).first_or_404()
-    # Show all updates from this user in this view
-    return render_template('index.html', user=user)
+    updates = Update.query.filter_by(user_id=user.id).all()
+    return render_template('officer_updates.html', user=user, updates=updates)
 
 @app.route('/promises')
 def promises():

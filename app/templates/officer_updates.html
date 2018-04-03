@@ -1,0 +1,14 @@
+{% extends "base.html" %} 
+
+{% block content %}
+<div style="border: 1px solid black; margin-bottom: 2em;">
+  <h2>{{user.name}}: Updates</h2>
+  <a href="{{url_for('officer', role=user.role.value)}}">See promises</a>
+  <p>Updates:</p>
+  <ul>
+    {% for update in updates %} 
+       {% include "_update.html" %}
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

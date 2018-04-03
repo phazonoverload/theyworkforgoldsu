@@ -4,6 +4,7 @@
   <div style="border: 1px solid black; margin-bottom: 2em;">
     <h2>{{user.name}}: <code>{{user.id}}</code></h2>
     <p>Role: {{user.role.label}}</p>
+    <a href="{{url_for('officer_updates', role=user.role.value)}}">See updates</a>
     <p>Promises:</p>
     <ul>
       {% for promise in user.promises %}
