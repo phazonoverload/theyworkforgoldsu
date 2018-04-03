@@ -64,3 +64,15 @@ class NewUpdateForm(FlaskForm):
   submit = SubmitField('Submit')
 
 ########
+
+class EditUserForm(FlaskForm):
+  name = StringField('Name', validators=[DataRequired()])
+  email = StringField('Email address', validators=[DataRequired()])
+  twitter = StringField('Twitter username (no @)')
+  submit = SubmitField('Submit')
+
+class EditPasswordForm(FlaskForm):
+  old_password = PasswordField('Current Password', validators=[DataRequired()])
+  new_password = PasswordField('New Password', validators=[DataRequired()])
+  new_password_2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('new_password')])
+  submit = SubmitField('Submit')

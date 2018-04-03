@@ -2,7 +2,7 @@ from datetime import datetime
 from flask import render_template, flash, redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, NewPromiseForm, NewUpdateForm, NewRoleForm
+from app.forms import LoginForm, RegistrationForm, NewPromiseForm, NewUpdateForm, NewRoleForm, EditUserForm, EditPasswordForm
 from app.models import User, Role, Update, Promise
 
 @app.route('/')
@@ -51,8 +51,21 @@ def updates():
     updates = Update.query.order_by(Update.datetime.desc()).all()
     return render_template('updates.html', updates=updates)
 
-@app.route('/edit')
+@app.route('/edit', methods=['GET', 'POST'])
+@login_required
 def edit_profile():
+    form = EditUserForm()
+    if form.validate_on_submit():
+        current_user.name = str(form.name.data)
+        current_user.email = str(form.email.data)
+        current_user.twitter = str(form.twitter.data)
+        db.session.commit()
+        flash('Changes to account made!')
+    return render_template('edit.html', form=form)
+
+@app.route('/edit/password')
+@login_required
+def edit_password():
     # Profile edit - should use update tools
     return render_template('index.html')
 
@@ -126,9 +139,9 @@ def admin_role():
         flash("New Role added")
     return render_template('admin_role.html', form=form)
 
-@app.route('/admin/people/<role>', methods=['GET', 'POST'])
-def admin_people_edit(role):
-    return render_template('index.html')
+# @app.route('/admin/people/<role>', methods=['GET', 'POST'])
+# def admin_people_edit(role):
+#     return render_template('index.html')
 
 ###
 ### REDIRECT ROUTES

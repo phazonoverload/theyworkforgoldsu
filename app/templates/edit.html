@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>Edit account</h1>
+
+<form action="" method="POST">
+  {{form.hidden_tag()}}
+  <div class="input-group">
+    {{form.name.label}} {{form.name(value=current_user.name)}} {% for error in form.name.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  <div class="input-group">
+    {{form.email.label}} {{form.email(value=current_user.email)}} {% for error in form.email.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  <div class="input-group">
+    {{form.twitter.label}} {{form.twitter(value=current_user.twitter)}} {% for error in form.twitter.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  {{form.submit()}}
+</form>
+
+<a href="{{url_for('edit_password')}}">Change password</a>
+
+{% endblock %}
