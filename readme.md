@@ -36,25 +36,25 @@ $ flask run
 
 ## Technical requirements for coursework
 
-- [x] it is a flask app
-  - [x] there is more than one route and more than one view
-- [x] the html is rendered using jinja templates
-  - [x] the jinja templates include some control structure(S) e.g. if/else, for/endfor
-- [x] it includes one or more forms
-  - [x] the forms have some validation
-  - [x] there are useful feedback messages to the user
-  - [x] using wtforms is not required but is recommended
-- [ ] it has a database backend that implements CRUD operations
-  - [ ] the database can be mysql or mongodb
-  - [ ] the create & update operations take input data from a form or forms
-  - [ ] using sqlalchemy is not required but will attract credit
-- [x] there is user authentication (i.e. logins)
-  - [x] the login process uses sessions
-  - [x] passwords should be stored as hashes
-  - [ ] using a salt is not required but is recommended
-  - [x] there is a way to logout
-  - [x] use of flask-login is not required but is recommended
-- [ ] there is a basic api i.e. content can be accessed as json via http methods
-  - [ ] it should be clear how to access the api (this could include comments in code)
-  - [ ] additional credit will be given for an api that implements get,post,push and delete
-  - [ ] use of flask-restful is not required but is recommended
+Criteria                   | Demonstrated                 
+---------------------------|---------------------------
+It is a flask app | It runs
+More than one route and view | `/app/routes.py`
+Uses Jinja templates | `/app/templates/*.html`
+Jinja control structures | `/app/templates/officer.html`
+One or more forms | `/app/templates/register.html`
+Forms have validation | `/app/forms.py` both built-in and custom (`validate_passphrase()`)
+Useful feedback messages | `/app/forms.py` in `validate_passphrase()`
+Bonus: wtforms | `/app/forms.py` include at top, use of field types in file
+Database backend with CRUD | Yes, uses sqlite. Examples below are from `/app/routes.py`<br> Create: `/promises/<id>/update`<br> Read: `/`<br>Update: `/edit`<br>Delete: Via direct database connection (purposeful)
+Create & update via forms | `/app/forms.py`<br>Create: `RegistrationForm()`<br>Update: `EditUserForm()`
+Bonus: SQLAlchemy | `/app/__init__.py`
+User auth | /login, /register, /logout
+Sessions for user | Use of `login_user()` in `/app/routes.py`
+Passwords as hashes | `set_password()` and `check_password()` functions in `User` model
+A way to logout | /logout
+Bonus: Salts | TBC
+Bonus: flask-login usage | Use of `current_user`, `login_user`, `logout_user` and `login_required`
+Basic API | TBC: docs will be at /api
+Bonus: GET, POST, PUSH and DELETE via API | Not suitable for this project
+Bonus: flask-restful | TBC
