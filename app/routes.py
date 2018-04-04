@@ -77,6 +77,10 @@ def edit_password():
 def api_docs():
     return render_template('api.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 ###
 ### AUTH ROUTES
 ###

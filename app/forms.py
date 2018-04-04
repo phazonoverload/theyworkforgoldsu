@@ -19,7 +19,7 @@ class LoginForm(FlaskForm):
 class RegistrationForm(FlaskForm):
   name = StringField('Full Name', validators=[DataRequired()])
   email = StringField('Email Address', validators=[DataRequired(), Email()])
-  twitter = StringField('Twitter username (no @)')
+  twitter = StringField('Twitter username (no @, optional)')
   role = QuerySelectField(query_factory=lambda: Role.query, allow_blank=True, get_label='label')
   password = PasswordField('Password', validators=[DataRequired()])
   password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])

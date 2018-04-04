@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700');
+
+:root {
+  --brand: #15AF97;
+  --brand-dark: #0A6057;
+  --black: #372253;
+  --light: #CDDEEE;
+  --font: 'IBM Plex Sans', sans-serif;
+  --wrapper: 1090px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font);
+}
+
+body {
+  background: white;
+}
+
+.w {
+  max-width: var(--wrapper);
+  display: block;
+  margin: 0 auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+header {
+  background: var(--brand);
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+  margin-bottom: 2em;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+header a.brand {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+header nav a {
+  margin-left: 1em;
+}
+
+.flashes {
+  background: var(--brand-dark);
+  color: white;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.flashes span {
+  margin-right: 1em;
+  display: inline-block;
+}
+
+.flashes > * {
+  display: inline-block;
+}
+
+.flashes .dismiss {
+  transition-duration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.hero {
+  background: var(--light);
+  padding: 2em;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2em;
+}
+
+.hero h1 {
+  text-transform: uppercase;
+}
+
+.hero h2 {
+  margin-top: 0.5em;
+}
+
+.btn,
+input[type=submit] {
+  background: var(--black);
+  color: white;
+  text-decoration: none;
+  padding: 0.5em;
+  display: inline-block;
+  margin-right: 0.5em;
+  margin-top: 1em;
+}
+
+input[type=submit] {
+  padding: 0.8em;
+  font-size: 1em;
+}
+
+input[type=checkbox] {
+  display: inline;
+}
+
+.input-group {
+  margin-bottom: 1em;
+}
+
+.input-group p {
+  margin-top: 0.5em;
+  color: red;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+form input,
+form textarea,
+form select {
+  display: block;
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid var(--light);
+  font-size: 1em;
+}
+
+.home.users {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+}
+
+.home.users a {
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+
+.home.users img {
+  width: 100%;
+}
+
+.home.users h1 {
+  font-size: 1.5em;
+}
+
+.home.users h2 {
+  font-size: 1em;
+}
+
+.home.users h1,
+.home.users h2,
+.home.users span {
+  margin-top: 0.5rem;
+  display: block;
+}
