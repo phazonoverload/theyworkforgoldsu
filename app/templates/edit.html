@@ -1,5 +1,7 @@
 {% extends "base.html" %} {% block content %}
 
+<div class="w">
+
 <div class="hero">
   <h1>Edit account</h1>
   <div class="links">
@@ -7,7 +9,7 @@
   </div>
 </div>
 
-<form action="" method="POST">
+<form class="box" action="" method="POST">
   {{form.hidden_tag()}}
   <div class="input-group">
     {{form.name.label}} {{form.name(value=current_user.name)}} {% for error in form.name.errors %}
@@ -27,4 +29,5 @@
   {{form.submit()}}
 </form>
 
+</div>
 {% endblock %}
