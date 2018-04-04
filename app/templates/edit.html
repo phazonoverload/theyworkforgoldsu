@@ -21,10 +21,22 @@
     <p>{{error}}</p>
     {% endfor %}
   </div>
-  <div class="input-group">
-    {{form.twitter.label}} {{form.twitter(value=current_user.twitter)}} {% for error in form.twitter.errors %}
-    <p>{{error}}</p>
-    {% endfor %}
+  <div class="avatar-select">
+    <div class="grid">
+      <div class="input-group">
+        {{form.twitter.label}} {{form.twitter(value=current_user.twitter)}} {% for error in form.twitter.errors %}
+        <p>{{error}}</p>
+        {% endfor %}
+      </div>
+      <div class="input-group">
+        {{form.facebook.label}} {{form.facebook(value=current_user.facebook)}} {% for error in form.facebook.errors %}
+        <p>{{error}}</p>
+        {% endfor %}
+      </div>
+    </div>
+    <span class="info">We won't display this information, but will pull your profile picture for use in this site. Please fill in either your
+      twitter username (no @) or your facebook username (facebook.com/
+      <u>thisbit</u>). If you fill in neither, you'll get a generic avatar.</span>
   </div>
   {{form.submit()}}
 </form>

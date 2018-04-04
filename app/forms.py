@@ -69,7 +69,8 @@ class NewUpdateForm(FlaskForm):
 class EditUserForm(FlaskForm):
   name = StringField('Name', validators=[DataRequired()])
   email = StringField('Email address', validators=[DataRequired()])
-  twitter = StringField('Twitter username (no @)')
+  twitter = StringField('Twitter username (optional)')
+  facebook = StringField('Facebook username (optional)')
   submit = SubmitField('Submit')
 
 class EditPasswordForm(FlaskForm):

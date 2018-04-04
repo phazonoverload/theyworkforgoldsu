@@ -64,6 +64,7 @@ def edit_profile():
         current_user.name = str(form.name.data)
         current_user.email = str(form.email.data)
         current_user.twitter = str(form.twitter.data)
+        current_user.facebook = str(form.facebook.data)
         db.session.commit()
         flash('Changes to account made!')
     return render_template('edit.html', form=form)
