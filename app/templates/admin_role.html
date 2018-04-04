@@ -1,33 +1,35 @@
 {% extends "base.html" %} {% block content %}
 
-<div class="hero">
-  <h1>New role</h1>
-  <h2>The passphrase is known by the admin team to restrict unauthorised usage.</h2>
-</div>
+<div class="w">
+  <div class="hero">
+    <h1>New role</h1>
+    <h2>The passphrase is known by the admin team to restrict unauthorised usage.</h2>
+  </div>
 
-<form action="" method="POST">
-  {{form.hidden_tag()}}
-  <div class="input-group">
-    {{form.label.label}} {{form.label()}} {% for error in form.label.errors %}
-    <p>{{error}}</p>
-    {% endfor %}
-  </div>
-  <div class="input-group">
-    {{form.value.label}} {{form.value()}} {% for error in form.value.errors %}
-    <p>{{error}}</p>
-    {% endfor %}
-  </div>
-  <div class="input-group">
-    {{form.role_type.label}} {{form.role_type()}} {% for error in form.role_type.errors %}
-    <p>{{error}}</p>
-    {% endfor %}
-  </div>
-  <div class="input-group">
-    {{form.passphrase.label}} {{form.passphrase()}} {% for error in form.passphrase.errors %}
-    <p>{{error}}</p>
-    {% endfor %}
-  </div>
-  {{form.submit()}}
-</form>
+  <form class="box" action="" method="POST">
+    {{form.hidden_tag()}}
+    <div class="input-group">
+      {{form.label.label}} {{form.label()}} {% for error in form.label.errors %}
+      <p>{{error}}</p>
+      {% endfor %}
+    </div>
+    <div class="input-group">
+      {{form.value.label}} {{form.value()}} {% for error in form.value.errors %}
+      <p>{{error}}</p>
+      {% endfor %}
+    </div>
+    <div class="input-group">
+      {{form.role_type.label}} {{form.role_type()}} {% for error in form.role_type.errors %}
+      <p>{{error}}</p>
+      {% endfor %}
+    </div>
+    <div class="input-group">
+      {{form.passphrase.label}} {{form.passphrase()}} {% for error in form.passphrase.errors %}
+      <p>{{error}}</p>
+      {% endfor %}
+    </div>
+    {{form.submit()}}
+  </form>
+</div>
 
 {% endblock %}

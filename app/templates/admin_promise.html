@@ -1,38 +1,40 @@
 {% extends "base.html" %} {% block content %}
 
-<div class="hero">
-  <h1>New promises</h1>
-  <h2>The passphrase is known by the admin team to restrict unauthorised usage.</h2>
+<div class="w">
+  <div class="hero">
+    <h1>New promises</h1>
+    <h2>The passphrase is known by the admin team to restrict unauthorised usage.</h2>
+  </div>
+  
+  <form class="box" action="" method="POST">
+    {{form.hidden_tag()}}
+    <div class="input-group">
+      {{form.title.label}} {{form.title()}} {% for error in form.title.errors %}
+      <p>{{error}}</p>
+      {% endfor %}
+    </div>
+    <div class="input-group">
+      {{form.body.label}} {{form.body()}} {% for error in form.body.errors %}
+      <p>{{error}}</p>
+      {% endfor %}
+    </div>
+    <div class="input-group">
+      {{form.actionable.label}} {{form.actionable()}} {% for error in form.actionable.errors %}
+      <p>{{error}}</p>
+      {% endfor %}
+    </div>
+    <div class="input-group">
+      {{form.user_id.label}} {{form.user_id()}} {% for error in form.user_id.errors %}
+      <p>{{error}}</p>
+      {% endfor %}
+    </div>
+    <div class="input-group">
+      {{form.passphrase.label}} {{form.passphrase()}} {% for error in form.passphrase.errors %}
+      <p>{{error}}</p>
+      {% endfor %}
+    </div>
+    {{form.submit()}}
+  </form>
 </div>
-
-<form action="" method="POST">
-  {{form.hidden_tag()}}
-  <div class="input-group">
-    {{form.title.label}} {{form.title()}} {% for error in form.title.errors %}
-    <p>{{error}}</p>
-    {% endfor %}
-  </div>
-  <div class="input-group">
-    {{form.body.label}} {{form.body()}} {% for error in form.body.errors %}
-    <p>{{error}}</p>
-    {% endfor %}
-  </div>
-  <div class="input-group">
-    {{form.actionable.label}} {{form.actionable()}} {% for error in form.actionable.errors %}
-    <p>{{error}}</p>
-    {% endfor %}
-  </div>
-  <div class="input-group">
-    {{form.user_id.label}} {{form.user_id()}} {% for error in form.user_id.errors %}
-    <p>{{error}}</p>
-    {% endfor %}
-  </div>
-  <div class="input-group">
-    {{form.passphrase.label}} {{form.passphrase()}} {% for error in form.passphrase.errors %}
-    <p>{{error}}</p>
-    {% endfor %}
-  </div>
-  {{form.submit()}}
-</form>
 
 {% endblock %}
