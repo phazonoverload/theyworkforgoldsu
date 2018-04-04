@@ -176,6 +176,7 @@ input[type=submit] {
 
 input[type=checkbox] {
   display: inline;
+  width: auto;
 }
 
 .input-group {
@@ -183,10 +184,17 @@ input[type=checkbox] {
 }
 
 .input-group p {
+  display: block;
   margin-top: 0.5em;
   color: red;
   font-size: 0.8em;
   font-style: italic;
+}
+
+form span.info {
+  font-size: 0.8em;
+  font-style: italic;
+  margin-bottom: 1em;
 }
 
 form input,
@@ -199,6 +207,20 @@ form select {
   font-size: 1em;
 }
 
+.home.users a.more {
+  width: 100%;
+  color: white;
+  background: var(--brand-dark);
+  text-align: center;
+  padding: 1em;
+  font-size: 1em;
+  display: block;
+  margin-top: 2em;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 .home.users .grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -206,7 +228,7 @@ form select {
   grid-row-gap: 1em;
 }
 
-.home.users a {
+.home.users .grid a {
   text-decoration: none;
   display: block;
   color: inherit;
@@ -214,6 +236,7 @@ form select {
 
 .home.users img {
   width: 100%;
+  border: 1px solid var(--light);
 }
 
 .home.users h1 {
@@ -229,4 +252,20 @@ form select {
 .home.users span {
   margin-top: 0.5rem;
   display: block;
+}
+
+.avatar-select {
+  background: var(--light);
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.avatar-select .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 2em;
+}
+
+.avatar-select .input-group {
+  margin-bottom: 0;
 }

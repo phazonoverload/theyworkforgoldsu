@@ -11,7 +11,8 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi aspernatur, mollitia, debitis vero culpa quasi ut distinctio
           iusto, ipsa iure saepe atque odit. Culpa, eligendi qui. Fugiat doloribus aut provident.</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi aspernatur, mollitia, debitis vero culpa quasi ut distinctio
-          iusto, ipsa iure saepe atque odit. Culpa, eligendi qui. Fugiat doloribus aut provident <a href="{{url_for('about')}}">about</a>.</p>
+          iusto, ipsa iure saepe atque odit. Culpa, eligendi qui. Fugiat doloribus aut provident.</p>
+        <p><b><a href="{{url_for('about')}}">Find out more about They Work For GoldSU</a></b></p>
       </div>
     </div>
   </div>
@@ -35,6 +36,7 @@
           </a>
         {% endfor %}
       </div>
+      <a href="{{url_for('people')}}" class="more">See all elected officers</a>
     </ul>
   </div>
 

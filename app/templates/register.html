@@ -20,19 +20,26 @@
     {% endfor %}
   </div>
   <div class="input-group">
-    {{form.twitter.label}} {{form.twitter()}} {% for error in form.twitter.errors %}
-    <p>{{error}}</p>
-    {% endfor %}
-  </div>
-  <div class="input-group">
-    {{form.facebook.label}} {{form.facebook()}} {% for error in form.facebook.errors %}
-    <p>{{error}}</p>
-    {% endfor %}
-  </div>
-  <div class="input-group">
     {{form.role.label}} {{form.role()}} {% for error in form.role.errors %}
     <p>{{error}}</p>
     {% endfor %}
+  </div>
+  <div class="avatar-select">
+    <div class="grid">
+      <div class="input-group">
+        {{form.twitter.label}} {{form.twitter()}} {% for error in form.twitter.errors %}
+        <p>{{error}}</p>
+        {% endfor %}
+      </div>
+      <div class="input-group">
+        {{form.facebook.label}} {{form.facebook()}} {% for error in form.facebook.errors %}
+        <p>{{error}}</p>
+        {% endfor %}
+      </div>
+    </div>
+    <span class="info">We won't display this information, but will pull your profile picture for use in this site. Please fill in either your twitter
+      username (no @) or your facebook username (facebook.com/
+      <u>thisbit</u>). If you fill in neither, you'll get a generic avatar.</span>
   </div>
   <div class="input-group">
     {{form.password.label}} {{form.password()}} {% for error in form.password.errors %}
@@ -48,6 +55,7 @@
     {{form.passphrase.label}} {{form.passphrase()}} {% for error in form.passphrase.errors %}
     <p>{{error}}</p>
     {% endfor %}
+    <span class="info">This passphrase is provided by the admin to officers to register for accounts.</span>
   </div>
   {{form.submit()}}
 </form>
