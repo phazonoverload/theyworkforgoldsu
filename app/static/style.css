@@ -177,6 +177,12 @@ input[type=submit] {
   margin-top: 1em;
 }
 
+.btn svg,
+input[type=submit] svg {
+  margin-right: 0.5em;
+  display: inline-block;
+}
+
 input[type=submit] {
   padding: 0.8em;
   font-size: 1em;
@@ -330,4 +336,71 @@ footer .links {
 footer .links a {
   margin-right: 1em;
   font-style: italic;
+}
+
+.officer.hero {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-column-gap: 2em;
+}
+
+.officer.hero img {
+  width: 100%;
+  border: 1px solid var(--light);
+}
+
+.officer.hero h3 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+nav.officer-panes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+nav.officer-panes a {
+  display: block;
+  text-align: center;
+  padding: 1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: rgb(235, 235, 235);
+}
+
+nav.officer-panes a.active {
+  background: white;
+  font-weight: bold;
+}
+
+nav.officer-panes ~ .box {
+  margin-top: 0;
+}
+
+ul.promises {
+  list-style-type: none;
+}
+
+ul.promises li {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid var(--light);
+  display: flex;
+  justify-content: space-between;
+}
+
+ul.promises li:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+ul.promises li a.btn {
+  margin-top: 0;
+  margin-right: 0;
+}
+
+ul.promises li a.new {
+   text-align: right;
+   display: block;
 }

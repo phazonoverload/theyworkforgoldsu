@@ -36,7 +36,6 @@ class RegistrationForm(FlaskForm):
 class NewPromiseForm(FlaskForm):
   title = StringField('Title', validators=[DataRequired()])
   body = TextAreaField('Description', validators=[DataRequired()])
-  actionable = BooleanField('Is this actionable?', validators=[DataRequired()])
   user_id = QuerySelectField(query_factory=lambda: User.query, allow_blank=True, get_label='name')
   passphrase = StringField('Passphrase', validators=[DataRequired()])
   submit = SubmitField('Submit')

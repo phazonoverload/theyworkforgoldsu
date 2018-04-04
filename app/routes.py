@@ -21,7 +21,7 @@ def people():
 @app.route('/people/<role>')
 def officer(role):
     user = User.query.filter_by(role_id=role).first_or_404()
-    return render_template('officer.html', user=user)
+    return render_template('officer.html', user=user, single=True, )
 
 @app.route('/people/<role>/updates', methods=['GET', 'POST'])
 def officer_updates(role):
@@ -31,9 +31,7 @@ def officer_updates(role):
 
 @app.route('/promises')
 def promises():
-    promises_a = Promise.query.filter_by(actionable=True).order_by(Promise.title).all()
-    promises_na = Promise.query.filter_by(actionable=False).order_by(Promise.title).all()
-    return render_template('promises.html', promises_a=promises_a, promises_na=promises_na)
+    return render_template('promises.html')
 
 @app.route('/promises/<id>')
 def single_promise(id):
@@ -144,7 +142,7 @@ def admin():
 def admin_promise():
     form = NewPromiseForm()
     if form.validate_on_submit():
-        promise = Promise(title=str(form.title.data), body=str(form.body.data), actionable=form.actionable.data, user_id=form.user_id.data.id)
+        promise = Promise(title=str(form.title.data), body=str(form.body.data), user_id=form.user_id.data.id)
         db.session.add(promise)
         db.session.commit()
         flash("New Promise added")

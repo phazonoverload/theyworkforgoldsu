@@ -19,11 +19,6 @@
       {% endfor %}
     </div>
     <div class="input-group">
-      {{form.actionable.label}} {{form.actionable()}} {% for error in form.actionable.errors %}
-      <p>{{error}}</p>
-      {% endfor %}
-    </div>
-    <div class="input-group">
       {{form.user_id.label}} {{form.user_id()}} {% for error in form.user_id.errors %}
       <p>{{error}}</p>
       {% endfor %}

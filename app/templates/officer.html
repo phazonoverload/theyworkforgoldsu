@@ -1,15 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div style="border: 1px solid black; margin-bottom: 2em;">
-    <h2>{{user.name}}: <code>{{user.id}}</code></h2>
-    <p>Role: {{user.role.label}}</p>
-    <a href="{{url_for('officer_updates', role=user.role.value)}}">See updates</a>
-    <p>Promises {{user.promises.count()}}:</p>
-    <ul>
-      {% for promise in user.promises %}
-        {% include "_promise.html" %}
-      {% endfor %}
-    </ul>
+
+  <div class="w">
+     {% include "_officer_top.html" %}
+    <nav class="officer-panes">
+      <a href="" class="active">Promises ({{user.promises.count()}})</a>
+      <a href="{{url_for('officer_updates', role=user.role.value)}}">Updates ({{user.updates.count()}})</a>
+    </nav>
+    <div class="box">
+      <ul class="promises">
+        {% for promise in user.promises|sort(attribute='title') %} 
+          {% include "_promise.html" %} 
+        {% endfor %}
+      </ul>
+    </div>
   </div>
+
 {% endblock %}

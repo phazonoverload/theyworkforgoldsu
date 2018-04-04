@@ -2,7 +2,6 @@
   <div class="w">
     <a href="{{url_for('index')}}" class="brand">They Work For GoldSU</a>
     <nav>
-      <a href="{{url_for('api_docs')}}">API</a>
       <a href="{{url_for('about')}}">About</a>
       {% if current_user.is_anonymous %}
       <a href="{{url_for('login')}}">Login</a>

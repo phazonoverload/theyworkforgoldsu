@@ -9,16 +9,7 @@
 </div>
 
 <ul class="users home box">
-  <div class="grid">
-     {% for user in users %}
-      <a href="{{url_for('officer', role=user.role.value)}}">
-        <img src="https://avatars.io/twitter/{{user.twitter}}" alt="Twitter avatar for {{user.name}}">
-        <h1>{{user.name}}</h1>
-        <h2>{{user.role.label}}</h2>
-        <span>{{user.promises.count()}} Promises</span>
-      </a>
-    {% endfor %}
-  </div>
+   {% include "_user-listing.html" %}
 </ul>
 </div>
 

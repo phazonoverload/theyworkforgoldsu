@@ -1,0 +1,19 @@
+<div class="officer hero">
+  {% if user.twitter %}
+    <img src="https://avatars.io/twitter/{{user.twitter}}" alt="Twitter avatar for {{user.name}}"> 
+  {% elif user.facebook %}
+    <img src="https://avatars.io/facebook/{{user.facebook}}" alt="Facbeook profile picture for {{user.name}}"> 
+  {% else %}
+    <img src="https://avatars.io/twitter" alt="Generic avatar"> 
+  {% endif %}
+  <div class="meta">
+    <h1>{{user.name}}</h1>
+    <h2>{{user.role.label}}</h2>
+    {% if user.role.role_type == 'ft' %}
+      <h3>Full time paid position</h3>
+    {% else %}
+      <h3>Part time position</h3>
+    {% endif %}
+    <a href="mailto:{{user.email}}" class="email btn"><i class="fas fa-envelope"></i>Email them at {{user.email}}</a>
+  </div>
+</div>
