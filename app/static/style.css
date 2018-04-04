@@ -162,6 +162,10 @@ header#sub .explore {
   margin-top: 0.5em;
 }
 
+.hero p {
+  margin-top: 1em;
+}
+
 .btn,
 input[type=submit] {
   background: var(--black);

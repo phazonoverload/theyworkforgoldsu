@@ -13,8 +13,10 @@ def index():
 
 @app.route('/people')
 def people():
-    users = User.query.all()
-    return render_template('officers.html', users=users)
+    users = User.query.order_by('name').all()
+    ft_count = User.query.filter(User.role.has(role_type='ft')).count()
+    pt_count = User.query.filter(~User.role.has(role_type='ft')).count()
+    return render_template('officers.html', users=users, ft_count=ft_count, pt_count=pt_count)
 
 @app.route('/people/<role>')
 def officer(role):
