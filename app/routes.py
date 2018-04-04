@@ -10,6 +10,11 @@ def index():
     users = User.query.all()
     return render_template('index.html', users=users)
 
+@app.route('/people')
+def people():
+    users = User.query.all()
+    return render_template('officers.html', users=users)
+
 @app.route('/people/<role>')
 def officer(role):
     user = User.query.filter_by(role_id=role).first_or_404()
@@ -91,7 +96,7 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(name=str(form.name.data), email=str(form.email.data), role=form.role.data, twitter=str(form.twitter.data))
+        user = User(name=str(form.name.data), email=str(form.email.data), role=form.role.data, twitter=str(form.twitter.data), facebook=str(form.facebook.data))
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()

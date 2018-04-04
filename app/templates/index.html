@@ -1,25 +1,41 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div class="hero">
-    <h1>Welcome to They Work For GoldSU</h1>
-    <h2>Explore manifesto promises and updates from your elected officers to keep them accountable.</h2>
-    <div class="links">
-      <a href="{{url_for('promises')}}" class="btn">Explore manifesto promises</a>
-      <a href="{{url_for('updates')}}" class="btn">Explore updates</a>
-      <a href="{{url_for('about')}}" class="btn">About</a>
+  <div class="jumbotron">
+    <div class="w">
+      <div class="img">
+        <h2>Hold your student representatives accountable.</h2>
+      </div>
+      <div class="meta">
+        <h2>Voted in to fight for you. What is done in your name?</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi aspernatur, mollitia, debitis vero culpa quasi ut distinctio
+          iusto, ipsa iure saepe atque odit. Culpa, eligendi qui. Fugiat doloribus aut provident.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi aspernatur, mollitia, debitis vero culpa quasi ut distinctio
+          iusto, ipsa iure saepe atque odit. Culpa, eligendi qui. Fugiat doloribus aut provident <a href="{{url_for('about')}}">about</a>.</p>
+      </div>
     </div>
   </div>
 
-  <ul class="users home">
-    {% for user in users %}
-      <a href="{{url_for('officer', role=user.role.value)}}">
-        <img src="https://avatars.io/twitter/{{user.twitter}}" alt="Twitter avatar for {{user.name}}">
-        <h1>{{user.name}}</h1>
-        <h2>{{user.role.label}}</h2>
-        <span>{{user.promises.count()}} Promises</span>
-      </a>
-    {% endfor %}
-  </ul>
+  <div class="w">
+    <ul class="users home box">
+      <h2 class="box-title">Your full-time sabbatical officers</h2>
+      <div class="grid">
+        {% for user in users %}
+          <a href="{{url_for('officer', role=user.role.value)}}">
+            {% if user.twitter %}
+              <img src="https://avatars.io/twitter/{{user.twitter}}" alt="Twitter avatar for {{user.name}}">
+            {% elif user.facebook %}
+              <img src="https://avatars.io/facebook/{{user.facebook}}" alt="Facbeook profile picture for {{user.name}}">
+            {% else %}
+              <img src="https://avatars.io/twitter" alt="Generic avatar">
+            {% endif %}
+            <h1>{{user.name}}</h1>
+            <h2>{{user.role.label}}</h2>
+            <span>{{user.promises.count()}} Promises</span>
+          </a>
+        {% endfor %}
+      </div>
+    </ul>
+  </div>
 
 {% endblock %}

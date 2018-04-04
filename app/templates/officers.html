@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block content %}
+<div class="hero">
+  <h1>All elected representatives</h1>
+  <h2>FT, PT, Media</h2>
+</div>
+
+<ul class="users home">
+  {% for user in users %}
+  <a href="{{url_for('officer', role=user.role.value)}}">
+    <img src="https://avatars.io/twitter/{{user.twitter}}" alt="Twitter avatar for {{user.name}}">
+    <h1>{{user.name}}</h1>
+    <h2>{{user.role.label}}</h2>
+    <span>{{user.promises.count()}} Promises</span>
+  </a>
+  {% endfor %}
+</ul>
+
+{% endblock %}

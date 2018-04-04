@@ -17,7 +17,11 @@
 }
 
 body {
-  background: white;
+  background: rgb(233, 227, 208);
+}
+
+a {
+  color: inherit;
 }
 
 .w {
@@ -28,27 +32,50 @@ body {
   padding-right: 1em;
 }
 
+.box {
+  padding: 2em;
+  background: white;
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+
+.box h2.box-title {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
 header {
-  background: var(--brand);
+  background: white;
   padding: 1em;
+  border-bottom: 1px solid var(--light);
+}
+
+header#sub {
+  border-bottom: 0;
+}
+
+header#main .w {
   display: flex;
   justify-content: space-between;
-  box-shadow: 0 4px 4px rgba(0,0,0,0.2);
-  margin-bottom: 2em;
 }
 
 header a {
-  color: white;
+  color: var(--black);
   text-decoration: none;
 }
 
 header a.brand {
+  color: var(--brand);
   text-transform: uppercase;
   font-weight: bold;
 }
 
 header nav a {
   margin-left: 1em;
+}
+
+header#sub a {
+  margin-right: 1em;
 }
 
 .flashes {
@@ -75,11 +102,52 @@ header nav a {
   cursor: pointer;
 }
 
+.jumbotron {
+  background: var(--brand);
+  margin-bottom: 4em;
+}
+
+.jumbotron * {
+  color: white;
+}
+
+.jumbotron .w {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-column-gap: 2em;
+}
+
+.jumbotron .img {
+  padding: 2em 3em;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+  url('/static/jumbotron.jpg');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jumbotron .img h2 {
+  font-size: 5vh;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.jumbotron .meta {
+  line-height: 1.5;
+  font-size: 1em;
+  padding: 2rem 0 2rem;
+}
+
+.jumbotron p:not(:last-child),
+.jumbotron h2 {
+  margin-bottom: 1em;
+}
+
 .hero {
-  background: var(--light);
-  padding: 2em;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   margin-bottom: 2em;
+  margin-top: 2em;
 }
 
 .hero h1 {
@@ -131,7 +199,7 @@ form select {
   font-size: 1em;
 }
 
-.home.users {
+.home.users .grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-column-gap: 1em;
@@ -152,7 +220,7 @@ form select {
   font-size: 1.5em;
 }
 
-.home.users h2 {
+.home.users a h2 {
   font-size: 1em;
 }
 

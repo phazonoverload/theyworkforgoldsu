@@ -1,12 +1,23 @@
-<header>
-  <a href="{{url_for('index')}}" class="brand">They Work For GoldSU</a>
-  <nav>
-    {% if current_user.is_anonymous %}
+<header id="main">
+  <div class="w">
+    <a href="{{url_for('index')}}" class="brand">They Work For GoldSU</a>
+    <nav>
+      <a href="{{url_for('api_docs')}}">API</a>
+      <a href="{{url_for('about')}}">About</a>
+      {% if current_user.is_anonymous %}
       <a href="{{url_for('login')}}">Login</a>
-    {% elif current_user %}
+      {% elif current_user %}
       <a href="{{url_for('officer', role=current_user.role.value)}}">{{current_user.name}}</a>
       <a href="{{url_for('edit_profile')}}">Edit Profile</a>
       <a href="{{url_for('logout')}}">Logout</a>
-    {% endif %}
+      {% endif %}
+  </div>
+</header>
+<header id="sub">
+  <div class="w">
+    <a href="{{url_for('people')}}">People</a>
+    <a href="{{url_for('promises')}}">Promises</a>
+    <a href="{{url_for('updates')}}">Updates</a>
+  </div>
   </nav>
 </header>

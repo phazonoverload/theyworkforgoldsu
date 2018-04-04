@@ -1,11 +1,13 @@
 {% extends "base.html" %} {% block content %}
 
+<div class="w">
 <div class="hero">
   <h1>Register for an account</h1>
-  <h2>Please note that only officers and media managers should register for accounts. These people should have been told the passphrase by the admin.</h2>
+  <h2>Please note that only officers and media managers should register for accounts. These people should have been told the
+    passphrase by the admin.</h2>
 </div>
 
-<form action="" method="POST">
+<form class="box" action="" method="POST">
   {{form.hidden_tag()}}
   <div class="input-group">
     {{form.name.label}} {{form.name()}} {% for error in form.name.errors %}
@@ -19,6 +21,11 @@
   </div>
   <div class="input-group">
     {{form.twitter.label}} {{form.twitter()}} {% for error in form.twitter.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  <div class="input-group">
+    {{form.facebook.label}} {{form.facebook()}} {% for error in form.facebook.errors %}
     <p>{{error}}</p>
     {% endfor %}
   </div>
@@ -44,5 +51,7 @@
   </div>
   {{form.submit()}}
 </form>
+
+</div>
 
 {% endblock %}
