@@ -6,6 +6,9 @@ The platform will be prepopulated with the manifesto promises of the 2017-2018 f
 
 This project is inspired by [MySociety's](https://www.mysociety.org) [TheyWorkForYou](https://www.theyworkforyou.com/) project, which aims to keep elected MPs accountable. It is built as coursework for IS52027C: Data, Networks and the Web (2017-18), and born from cynicism as a member of the Students' Union.
 
+## License: (CC) BY-SA 4.0
+
+This work is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
 
 ## Setting up project
 

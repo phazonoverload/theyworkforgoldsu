@@ -321,3 +321,13 @@ footer .button {
   border-radius: 4em;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25)
 }
+
+footer .links {
+  font-size: 0.8em;
+  margin-top: 1rem;
+}
+
+footer .links a {
+  margin-right: 1em;
+  font-style: italic;
+}
