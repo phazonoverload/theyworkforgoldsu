@@ -7,7 +7,7 @@ from app.models import User, Role, Update, Promise
 
 @app.route('/')
 def index():
-    users = User.query.all()
+    users = User.query.filter(User.role.has(role_type='ft'))
     return render_template('index.html', users=users)
 
 @app.route('/people')
