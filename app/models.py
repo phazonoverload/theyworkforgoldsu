@@ -50,6 +50,7 @@ class Update(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   datetime = db.Column(db.DateTime, default=datetime.utcnow)
   body = db.Column(db.String(1000))
+  personal = db.Column(db.String(1000))
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
   promise_id = db.Column(db.Integer, db.ForeignKey('promise.id'))
 

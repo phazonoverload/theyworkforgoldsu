@@ -1,8 +1,8 @@
 """“automated”
 
-Revision ID: 6164fe43d52c
+Revision ID: 9d4ac85f2d61
 Revises: 
-Create Date: 2018-04-04 10:24:19.985436
+Create Date: 2018-04-06 16:43:11.289032
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '6164fe43d52c'
+revision = '9d4ac85f2d61'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -60,6 +60,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('datetime', sa.DateTime(), nullable=True),
     sa.Column('body', sa.String(length=1000), nullable=True),
+    sa.Column('personal', sa.String(length=1000), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('promise_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['promise_id'], ['promise.id'], ),

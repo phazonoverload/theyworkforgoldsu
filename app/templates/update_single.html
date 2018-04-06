@@ -11,6 +11,11 @@
     <p>{{error}}</p>
     {% endfor %}
   </div>
+  <div class="input-group">
+    {{form.personal.label}} {{form.personal()}} {% for error in form.personal.errors %}
+    <p>{{error}}</p>
+    {% endfor %}
+  </div>
   {{form.submit()}}
 </form>
 
