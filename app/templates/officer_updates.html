@@ -10,6 +10,10 @@
   <div class="box">
     <ul class="updates">
       {% for update in updates|sort(attribute='datetime', reverse=true) %} {% include "_update.html" %} {% endfor %}
+      {% if user.updates.count() == 0 %}
+        <p>This officer hasn't provided an update yet.</p>
+        <a href="mailto:{{user.email}}" class="email btn"><i class="fas fa-envelope"></i>Email and ask why</a>
+      {% endif %}
     </ul>
   </div>
 </div>
