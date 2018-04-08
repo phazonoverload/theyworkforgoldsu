@@ -3,7 +3,7 @@
 {% block content %}
   <h1>{{promise.title}}</h1>
   <h2>{{promise.body}}</h2>
-  <p>A manifesto promise by {{promise.user.name}}</p>
+  <p>A manifesto promise by {{promise.role.users.first().name}}</p>
   <h3>Updates:</h3>
   <ul>
     {% for update in promise.updates|sort(attribute='datetime', reverse=true) %} 

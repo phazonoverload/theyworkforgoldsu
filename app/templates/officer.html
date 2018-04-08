@@ -5,12 +5,12 @@
   <div class="w">
      {% include "_officer_top.html" %}
     <nav class="officer-panes">
-      <a href="" class="active">Promises ({{user.promises.count()}})</a>
+      <a href="" class="active">Promises ({{user.role.promises.count()}})</a>
       <a href="{{url_for('officer_updates', role=user.role.value)}}">Updates ({{user.updates.count()}})</a>
     </nav>
     <div class="box">
       <ul class="promises">
-        {% for promise in user.promises|sort(attribute='title') %} 
+        {% for promise in user.role.promises|sort(attribute='title') %} 
           {% include "_promise.html" %} 
         {% endfor %}
       </ul>

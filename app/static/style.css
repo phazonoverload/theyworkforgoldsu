@@ -386,8 +386,10 @@ ul.promises li {
   margin-bottom: 1em;
   padding-bottom: 2em;
   border-bottom: 1px solid var(--light);
-  display: flex;
-  justify-content: space-between;
+}
+
+ul.promises li .meta {
+  margin-top: 0.5em;
 }
 
 ul.promises li:last-child {
@@ -395,12 +397,15 @@ ul.promises li:last-child {
   border-bottom: 0;
 }
 
+ul.promises li p {
+  margin-top: 0.5em;
+}
+
 ul.promises li a.btn {
-  margin-top: 0;
   margin-right: 0;
+  display: inline-block;
 }
 
 ul.promises li a.new {
-   text-align: right;
-   display: block;
+  margin-left: 1em;
 }

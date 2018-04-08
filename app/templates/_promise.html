@@ -1,17 +1,10 @@
-<!-- <li>
-  <b>{{promise.title}}</b>
-  {% if not single %}
-  <small>{{promise.user.name}}</small>
-  {% endif %}
-</li> -->
-
 <li>
   <div class="main">
     <h2>{{promise.title}}</h2>
     <p>{{promise.body}}</p>
   </div>
   <div class="meta">
-    <p><a href="{{url_for('single_promise', id=promise.id)}}" class="btn">Click to see {{promise.updates.count()}} updates</a></p>
+    <a href="{{url_for('single_promise', id=promise.id)}}" class="btn">Click to see {{promise.updates.count()}} updates</a>
      {% if current_user.is_authenticated %}
     <a href="{{url_for('update_promise', id=promise.id)}}" class="new">New update</a>
     {% endif %}
