@@ -1,13 +1,20 @@
 {% extends "base.html" %} 
 
 {% block content %}
-  <h1>{{promise.title}}</h1>
-  <h2>{{promise.body}}</h2>
-  <p>A manifesto promise by {{promise.role.users.first().name}}</p>
-  <h3>Updates:</h3>
-  <ul>
-    {% for update in promise.updates|sort(attribute='datetime', reverse=true) %} 
-      {% include "_update.html" %}
-    {% endfor %}
-  </ul>
+  <div class="w">
+    <div class="hero">
+      <h1>{{promise.title}}</h1>
+      <h2>A manifesto promise by {{promise.role.users.first().name}}, your {{promise.role.label}}</h2>
+      <p>{{promise.body}}</p>
+      {% if promise.role.users.first() == current_user %}
+        <a href="{{url_for('update_promise', id=promise.id)}}" class="btn">Provide an update to your members</a>
+      {% endif %}
+    </div>
+    <div class="box">
+      <h2>This promise has {{promise.updates.count()}} updates so far</h2>
+      <ul class="updates">
+        {% for update in promise.updates|sort(attribute='datetime', reverse=true) %} {% include "_update.html" %} {% endfor %}
+      </ul>
+    </div>
+  </div>
 {% endblock %}

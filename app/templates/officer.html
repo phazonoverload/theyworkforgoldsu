@@ -10,8 +10,8 @@
     </nav>
     <div class="box">
       <ul class="promises">
-        {% for promise in user.role.promises|sort(attribute='title') %} 
-          {% include "_promise.html" %} 
+        {% for promise in user.role.promises|sort(attribute='title') %}
+          {% include "_promise.html" %}
         {% endfor %}
       </ul>
     </div>

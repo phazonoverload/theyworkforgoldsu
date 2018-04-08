@@ -377,11 +377,13 @@ nav.officer-panes ~ .box {
   margin-top: 0;
 }
 
-ul.promises {
+ul.promises,
+ul.updates {
   list-style-type: none;
 }
 
-ul.promises li {
+ul.promises li,
+ul.updates li {
   margin-top: 2em;
   margin-bottom: 1em;
   padding-bottom: 2em;
@@ -408,4 +410,8 @@ ul.promises li a.btn {
 
 ul.promises li a.new {
   margin-left: 1em;
+}
+
+ul.updates p {
+  margin: 1em 0;
 }
