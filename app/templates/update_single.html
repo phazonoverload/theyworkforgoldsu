@@ -7,20 +7,26 @@
     <h2>{{promise.body}}</h2>
   </div>
 
-  <form class="box" action="" method="POST">
-    {{form.hidden_tag()}}
-    <div class="input-group">
-      {{form.body.label}} {{form.body()}} {% for error in form.body.errors %}
-      <p>{{error}}</p>
-      {% endfor %}
+  {% if promise.role.users.first() == current_user %}
+    <form class="box" action="" method="POST">
+      {{form.hidden_tag()}}
+      <div class="input-group">
+        {{form.body.label}} {{form.body()}} {% for error in form.body.errors %}
+        <p>{{error}}</p>
+        {% endfor %}
+      </div>
+      <div class="input-group">
+        {{form.personal.label}} {{form.personal()}} {% for error in form.personal.errors %}
+        <p>{{error}}</p>
+        {% endfor %}
+      </div>
+      {{form.submit()}}
+    </form>
     </div>
-    <div class="input-group">
-      {{form.personal.label}} {{form.personal()}} {% for error in form.personal.errors %}
-      <p>{{error}}</p>
-      {% endfor %}
+  {% else %}
+    <div class="box">
+      <p>This isn't updatable by you.</p>
     </div>
-    {{form.submit()}}
-  </form>
-</div>
+  {% endif %}
 
 {% endblock %}

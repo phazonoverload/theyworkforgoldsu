@@ -5,8 +5,8 @@
   </div>
   <div class="meta">
     <a href="{{url_for('single_promise', id=promise.id)}}" class="btn">Click to see {{promise.updates.count()}} updates</a>
-     {% if current_user.is_authenticated %}
-    <a href="{{url_for('update_promise', id=promise.id)}}" class="new">New update</a>
+     {% if promise.role.users.first() == current_user %}
+      <a href="{{url_for('update_promise', id=promise.id)}}" class="new">New update</a>
     {% endif %}
   </div>
 </li>
