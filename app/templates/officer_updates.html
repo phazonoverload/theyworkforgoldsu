@@ -1,14 +1,16 @@
 {% extends "base.html" %} 
 
 {% block content %}
-<div style="border: 1px solid black; margin-bottom: 2em;">
-  <h2>{{user.name}}: Updates</h2>
-  <a href="{{url_for('officer', role=user.role.value)}}">See promises</a>
-  <p>Updates:</p>
-  <ul>
-    {% for update in updates|sort(attribute='datetime', reverse=true) %} 
-       {% include "_update.html" %}
-    {% endfor %}
-  </ul>
+<div class="w">
+  {% include "_officer_top.html" %}
+  <nav class="officer-panes">
+    <a href="{{url_for('officer', role=user.role.value)}}">Promises ({{user.role.promises.count()}})</a>
+    <a href="" class="active">Updates ({{user.updates.count()}})</a>
+  </nav>
+  <div class="box">
+    <ul class="updates">
+      {% for update in updates|sort(attribute='datetime', reverse=true) %} {% include "_update.html" %} {% endfor %}
+    </ul>
+  </div>
 </div>
 {% endblock %}

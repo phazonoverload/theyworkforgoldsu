@@ -394,9 +394,11 @@ ul.promises li .meta {
   margin-top: 0.5em;
 }
 
-ul.promises li:last-child {
+ul.promises li:last-child,
+ul.updates li:last-child {
   margin-bottom: 0;
   border-bottom: 0;
+  padding-bottom: 0;
 }
 
 ul.promises li p {
@@ -411,7 +413,9 @@ ul.promises li a.btn {
 ul.promises li a.new {
   margin-left: 1em;
 }
-
 ul.updates p {
+  margin: 1em 0;
+}
+ul.updates h4 {
   margin: 1em 0;
 }

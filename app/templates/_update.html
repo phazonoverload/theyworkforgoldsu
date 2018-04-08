@@ -1,6 +1,9 @@
 <li>
   <div class="main">
-    <h3>{{update.body}}</h3>
+    {% if promise_id %}
+    <h3>Update: {{update.promise.title}}</h3>
+    {% endif %}
+    <h4>{{update.body}}</h4>
     <p>{{update.personal}}</p>
     <small>{{update.datetime}}</small>
   </div>
