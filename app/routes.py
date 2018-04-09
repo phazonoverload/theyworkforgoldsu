@@ -55,7 +55,7 @@ def update_promise(id):
 @app.route('/updates')
 def updates():
     updates = Update.query.order_by(Update.datetime.desc()).all()
-    return render_template('updates.html', updates=updates, promise_id=True)
+    return render_template('updates.html', updates=updates, promise_id=True, user_id=True)
 
 @app.route('/edit', methods=['GET', 'POST'])
 @login_required

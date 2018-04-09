@@ -5,6 +5,13 @@
     {% endif %}
     <h4>{{update.body}}</h4>
     <p>{{update.personal}}</p>
-    <small>{{update.datetime}}</small>
+    <small>
+      <span>{{update.datetime}} by </span>
+      {% if user_id %}
+        <a href="{{url_for('officer', role=update.user.role.value)}}">
+          {{update.user.name}}
+        </a>
+      {% endif %}
+    </small>
   </div>
 </li>

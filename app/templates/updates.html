@@ -1,9 +1,17 @@
-{% extends "base.html" %} {% block content %}
-<h2>All updates from all officers</h2>
+{% extends "base.html" %} 
 
-<ul>
-  {% for update in updates %} 
-    {% include "_update.html" %}
-  {% endfor %}
-</ul>
+{% block content %}
+
+<div class="w">
+  <div class="hero">
+    <h1>All updates made from all officers</h1>
+  </div>
+  <div class="box">
+    <ul class="updates all">
+      {% for update in updates|sort(attribute='datetime', reverse=true) %} 
+        {% include "_update.html" %} 
+      {% endfor %}
+    </ul>
+  </div>
+</div>
 {% endblock %}
