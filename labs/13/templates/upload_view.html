@@ -1,0 +1,26 @@
+<!doctype html>
+<title>Upload</title>
+<style>
+  .imgs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  img {
+    width: 100%;
+  }
+</style>
+
+<hr> {% with messages = get_flashed_messages() %} {% if messages %}
+<ul>
+  {% for message in messages %} {{message}} {% endfor %}
+</ul>
+{% endif %} {% endwith %}
+
+<hr>
+<h2>View images</h2>
+<a href="/upload">Upload new image</a>
+<div class="imgs">
+  {% for f in files %}
+  <img src="{{f}}"> {% endfor %}
+</div>

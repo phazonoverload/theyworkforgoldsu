@@ -1,0 +1,8 @@
+<!doctype html>
+<title>Feed</title>
+
+{% for article in articles %} {% if "man" in article.summary.lower() %}
+<b>{{article.title}}</b>
+<br />
+<p>{{article.summary}}</p>
+{% endif %} {% endfor %}

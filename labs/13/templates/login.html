@@ -1,0 +1,26 @@
+<!doctype html>
+<title>Login</title>
+<style>
+  label {
+    display: block;
+  }
+</style>
+
+<h2>Login</h2>
+<form method="POST">
+  <div class="input-group">
+    <label for="user">Username</label>
+    <input type="text" id="user" name="user">
+  </div>
+  <div class="input-group">
+    <label for="pass">Password</label>
+    <input type="password" id="pass" name="pass">
+  </div>
+  <input type="submit">
+</form>
+
+<hr> {% with messages = get_flashed_messages() %} {% if messages %}
+<ul>
+  {% for message in messages %} {{message}} {% endfor %}
+</ul>
+{% endif %} {% endwith %}
