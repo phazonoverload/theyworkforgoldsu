@@ -1,0 +1,37 @@
+<!doctype html>
+<title>WTF</title>
+<style>
+  label {
+    display: block;
+  }
+</style>
+
+<h2>WTF</h2>
+<form method="POST" action="/">
+  {{form.csrf_token}}
+  <div class="input-group">
+    {{form.username.label}}
+    {{form.username()}}
+    {% for error in form.username.errors %}
+      <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  <div class="input-group">
+    {{form.password.label}}
+    {{form.password()}}
+    {% for error in form.password.errors %}
+      <p>{{error}}</p>
+    {% endfor %}
+  </div>
+  {{form.submit()}}
+</form>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul>
+    {% for message in messages %}
+      {{message}}
+    {% endfor %}
+  </ul>
+  {% endif %}
+{% endwith %}

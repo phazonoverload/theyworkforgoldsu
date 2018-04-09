@@ -46,6 +46,7 @@ $ flask run
 * About page
 * API Docs
 * Home page copy
+* Remove labs folder
 
 ## Technical requirements for coursework
 

@@ -11,13 +11,12 @@
   }
 </style>
 
-<hr> {% with messages = get_flashed_messages() %} {% if messages %}
+{% with messages = get_flashed_messages() %} {% if messages %}
 <ul>
   {% for message in messages %} {{message}} {% endfor %}
 </ul>
 {% endif %} {% endwith %}
 
-<hr>
 <h2>View images</h2>
 <a href="/upload">Upload new image</a>
 <div class="imgs">

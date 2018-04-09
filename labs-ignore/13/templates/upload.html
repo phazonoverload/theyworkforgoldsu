@@ -24,7 +24,7 @@
   <input type="submit" value="Upload">
 </form>
 
-<hr> {% with messages = get_flashed_messages() %} {% if messages %}
+{% with messages = get_flashed_messages() %} {% if messages %}
 <ul>
   {% for message in messages %} {{message}} {% endfor %}
 </ul>
