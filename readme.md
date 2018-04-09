@@ -37,9 +37,19 @@ $ export FLASK_APP=main.py
 $ flask run
 ```
 
+## Roadmap (todo)
+
+* Responsive views
+* Dockerise
+* Deploy on now.sh
+* Take all instances of Goldsmiths-specific language and move to variables
+* About page
+* API Docs
+* Home page copy
+
 ## Technical requirements for coursework
 
-Criteria                   | Demonstrated                 
+Criteria                   | Demonstrated
 ---------------------------|---------------------------
 It is a flask app | It runs
 More than one route and view | `/app/routes.py`
