@@ -61,7 +61,7 @@ class NewRoleForm(FlaskForm):
 
 class NewUpdateForm(FlaskForm):
   body = TextAreaField('Update Text', validators=[DataRequired()])
-  personal = TextAreaField('Your personal contribution', validators=[DataRequired()])
+  personal = TextAreaField('What have you personally done towards this update?' , validators=[DataRequired()])
   submit = SubmitField('Submit')
 
 ########
