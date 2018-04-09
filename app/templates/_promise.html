@@ -1,12 +1,17 @@
 <li>
   <div class="main">
-    <h2>{{promise.title}}</h2>
+    <h3>{{promise.title}}</h3>
     <p>{{promise.body}}</p>
   </div>
   <div class="meta">
     <a href="{{url_for('single_promise', id=promise.id)}}" class="btn">Click to see {{promise.updates.count()}} updates</a>
-     {% if promise.role.users.first() == current_user %}
+    {% if promise.role.users.first() == current_user and not hide_update_button %}
       <a href="{{url_for('update_promise', id=promise.id)}}" class="new">New update</a>
+    {% endif %}
+    {% if user_id %}
+      <a href="{{url_for('officer', role=promise.role.value)}}" class="new">
+        By {{promise.role.users.first().name}}
+      </a>
     {% endif %}
   </div>
 </li>

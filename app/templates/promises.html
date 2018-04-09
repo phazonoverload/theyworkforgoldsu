@@ -1,6 +1,15 @@
 {% extends "base.html" %} 
 
 {% block content %}
-  <h2>All promises from all officers</h2>
+  <div class="w">
+    <div class="hero">
+      <h1>All promises made by your officers</h1>
+    </div>
+    <div class="box">
+      <ul class="promises all">
+        {% for promise in promises|sort(attribute='title') %} {% include "_promise.html" %} {% endfor %}
+      </ul>
+    </div>
+  </div>
 
 {% endblock %}

@@ -390,6 +390,10 @@ ul.updates li {
   border-bottom: 1px solid var(--light);
 }
 
+ul.promises.all li:first-child {
+  margin-top: 0;
+}
+
 ul.promises li .meta {
   margin-top: 0.5em;
 }

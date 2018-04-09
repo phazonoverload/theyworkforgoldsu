@@ -14,6 +14,10 @@
       <h2>This promise has {{promise.updates.count()}} updates so far</h2>
       <ul class="updates">
         {% for update in promise.updates|sort(attribute='datetime', reverse=true) %} {% include "_update.html" %} {% endfor %}
+        {% if promise.updates.count() == 0 %}
+          <p>This officer hasn't provided an update for this promise yet.</p>
+          <a href="mailto:{{promise.role.users.first().email}}" class="email btn"><i class="fas fa-envelope"></i>Email and ask why</a>
+        {% endif %}
       </ul>
     </div>
   </div>

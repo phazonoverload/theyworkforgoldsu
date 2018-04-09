@@ -31,7 +31,8 @@ def officer_updates(role):
 
 @app.route('/promises')
 def promises():
-    return render_template('promises.html')
+    promises = Promise.query.all()
+    return render_template('promises.html', promises=promises, user_id=True, hide_update_button=True)
 
 @app.route('/promises/<id>')
 def single_promise(id):
