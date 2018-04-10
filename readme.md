@@ -24,10 +24,13 @@ $ pip install -r requirements.txt
 
 # Set up database
 $ flask db upgrade
+```
 
-# Set environment variables
-$ PASSPHRASE="YourPassPhraseForUserReg"
-$ ADMIN_PASS="YourPassPhraseForAdmin"
+### Rename config.example.py tp config.py and configure passphrases
+
+```
+PASSPHRASE="YourPassphraseForUserReg"
+ADMIN_PASS="YourPassphraseForAdmin"
 ```
 
 ## Running project
