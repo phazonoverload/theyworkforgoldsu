@@ -40,9 +40,10 @@ $ flask run
 ## Roadmap (todo)
 
 * Responsive views
-* Dockerise
-* Deploy on now.sh
+* Deploy on Heroku
+* Move to redis
 * Take all instances of Goldsmiths-specific language and move to variables
+* Make filenames nicer
 * About page
 * API Docs
 * Home page copy
