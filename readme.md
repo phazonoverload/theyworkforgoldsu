@@ -24,6 +24,10 @@ $ pip install -r requirements.txt
 
 # Set up database
 $ flask db upgrade
+
+# Set environment variables
+$ PASSPHRASE="YourPassPhraseForUserReg"
+$ ADMIN_PASS="YourPassPhraseForAdmin"
 ```
 
 ## Running project
