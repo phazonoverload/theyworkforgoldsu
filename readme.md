@@ -23,6 +23,7 @@ $ source venv/bin/activate
 $ pip install -r requirements.txt
 
 # Set up database
+$ export FLASK_APP=main.py
 $ flask db upgrade
 ```
 
@@ -41,20 +42,20 @@ $ source venv/bin/activate
 
 # Expose the entry point of our Flask app and run it
 $ export FLASK_APP=main.py
-$ flask run
+$ flask run --host=0.0.0.0 --port=8000
 ```
 
 ## Roadmap (todo)
 
-* Responsive views
-* Deploy on Heroku
-* Move to redis
-* Take all instances of Goldsmiths-specific language and move to variables
-* Make filenames nicer
-* About page
-* API Docs
-* Home page copy
-* Remove labs folder
+- [ ] Facebook avatars broken
+- [ ] Responsive views
+- [ ] Deploy on Heroku
+- [ ] No updates all view email link
+- [ ] Move to redis
+- [ ] Take all instances of Goldsmiths-specific language and move to variables
+- [ ] Make filenames nicer
+- [ ] About page
+- [ ] API Docs
 
 ## Technical requirements for coursework
 
