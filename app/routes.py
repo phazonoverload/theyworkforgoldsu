@@ -83,7 +83,8 @@ def edit_password():
 
 @app.route('/api')
 def api_docs():
-    return render_template('api.html')
+    base_url = '/api/v1'
+    return render_template('api.html', base_url=base_url)
 
 @app.route('/about')
 def about():

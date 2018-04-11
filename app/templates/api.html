@@ -1,6 +1,39 @@
 {% extends "base.html" %} 
 
 {% block content %}
-<h1>TheyWorkForGoldSU API</h1>
+
+<div class="w">
+  <div class="hero">
+    <h1>Developer Documentation</h1>
+  </div>
+  <div class="box api">
+    <p>They Work For GoldSU provides a simple GET API which can be used to access site data. At present, it doesn't require authentication and isn't rate limited (so be nice).</p>
+    <h3>The base URL for the API is <code>{{base_url}}</code></h3>
+    <section>
+      <h2>/people</h2>
+      <p>This endpoint exposes all people who currently have accounts as elected representatives.</p>
+      <a href="{{base_url}}/people" class="btn">Try it out</a>
+      <h2>/people/:id</h2>
+      <p>This endpoint exposes a single user, identified by their ID</p>
+      <a href="{{base_url}}/people/1" class="btn">Try it out</a>
+    </section>
+    <section>
+      <h2>/promises</h2>
+      <p>This endpoint exposes all promises, from all users.</p>
+      <a href="{{base_url}}/promises" class="btn">Try it out</a>
+      <h2>/promises/:id</h2>
+      <p>This endpoint exposes a single promise, identified by it's ID</p>
+      <a href="{{base_url}}/promises/1" class="btn">Try it out</a>
+    </section>
+    <section>
+      <h2>/updates</h2>
+      <p>This endpoint exposes all updates, from all users.</p>
+      <a href="{{base_url}}/updates" class="btn">Try it out</a>
+      <h2>/updates/:id</h2>
+      <p>This endpoint exposes a single update, identified by it's ID</p>
+      <a href="{{base_url}}/updates/1" class="btn">Try it out</a>
+    </section>
+  </div>
+</div>
 
 {% endblock %}

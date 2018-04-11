@@ -4,7 +4,7 @@ Born from a desire to better understand how promises are carried through, They W
 
 The platform will be prepopulated with the manifesto promises of the 2017-2018 full-time and part-time officers, and give them the opportunity to log progress of each promise along with a completion percentage as they see it (with anything less than 100% meaning they did not manage to complete the task).
 
-This project is inspired by [MySociety's](https://www.mysociety.org) [TheyWorkForYou](https://www.theyworkforyou.com/) project, which aims to keep elected MPs accountable. It is built as coursework for IS52027C: Data, Networks and the Web (2017-18), and born from cynicism as a member of the Students' Union.
+This project is inspired by [MySociety's](https://www.mysociety.org) [TheyWorkForYou](https://www.theyworkforyou.com/) project, which aims to keep elected MPs accountable. It is built as coursework for IS52027C: Data, Networks and the Web (2017-18).
 
 ## License: (CC) BY-SA 4.0
 
@@ -47,15 +47,16 @@ $ flask run --host=0.0.0.0 --port=8000
 
 ## Roadmap (todo)
 
-- [ ] Facebook avatars broken
-- [ ] Responsive views
-- [ ] Deploy on Heroku
-- [ ] No updates all view email link
-- [ ] Move to redis
-- [ ] Take all instances of Goldsmiths-specific language and move to variables
-- [ ] Make filenames nicer
-- [ ] About page
-- [ ] API Docs
+- Facebook avatars broken
+- Responsive views
+- Deploy on Heroku
+- No updates all view email link
+- Move to redis
+- Take all instances of Goldsmiths-specific language and move to variables
+- Make filenames nicer
+- About page
+- API Docs
+- Upload profile images
 
 ## Technical requirements for coursework
 

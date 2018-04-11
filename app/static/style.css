@@ -424,3 +424,66 @@ ul.updates p {
 ul.updates h4 {
   margin: 1em 0;
 }
+
+.built {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 2em;
+  background: var(--light);
+  padding: 1em;
+  margin-top: 2em;
+}
+
+.built img {
+  width: 100%;
+}
+
+.box.about h2,
+.box.about p {
+  margin-bottom: 1em;
+}
+
+.box.about .cc {
+  padding-top: 0.5em;
+}
+
+.box.about p,
+.box.api p {
+  line-height: 1.5;
+}
+
+.built a.btn {
+  margin-top: 0;
+}
+
+.api section {
+  background: var(--light);
+  margin-top: 2em;
+  padding: 1em;
+}
+
+.api section p {
+  margin-bottom: 0;
+}
+
+.api section h2 {
+  font-family: monospace;
+  margin-bottom: 0.25em;
+}
+
+.api section a.btn {
+  margin-top: 0.5em;
+}
+
+.api section a.btn:not(:last-child) {
+  margin-bottom: 2em;
+}
+
+.api h3 {
+  margin-top: 1em;
+}
+
+.api h3 code {
+  font-family: monospace;
+  font-size: 1.2em;
+}
