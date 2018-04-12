@@ -45,18 +45,6 @@ $ export FLASK_APP=main.py
 $ flask run --host=0.0.0.0 --port=8000
 ```
 
-## Roadmap (todo)
-
-- Facebook avatars broken
-- Responsive views
-- No updates all view email link
-- Move to redis
-- Take all instances of Goldsmiths-specific language and move to variables
-- Make filenames nicer
-- About page
-- API Docs
-- Upload profile images
-
 ## Technical requirements for coursework
 
 Criteria                   | Demonstrated
