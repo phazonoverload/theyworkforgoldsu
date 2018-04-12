@@ -487,3 +487,13 @@ ul.updates h4 {
   font-family: monospace;
   font-size: 1.2em;
 }
+
+.changelog {
+  margin-top: 3em;
+  padding-top: 2em;
+  border-top: 1px solid var(--brand-dark);
+}
+
+.changelog ul {
+  margin-left: 1.5em;
+}
