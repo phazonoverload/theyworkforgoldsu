@@ -1,1 +1,1 @@
-web: flask db upgrade; gunicorn theyworkforgoldsu:app
+iweb: flask db upgrade; gunicorn app:app
