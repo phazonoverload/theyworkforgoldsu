@@ -9,8 +9,20 @@
 </div>
 
 <ul class="users home box">
-   {% include "_user-listing.html" %}
+  {% include "_user-listing.html" %}
+  {% if roles|length != users|length %}
+    <div class="not-reg">
+      <h2>Not yet registered</h2>
+      <p>People in all of the following roles have been invited to register for an account but have not yet done so:</p>
+      <ul>
+        {% for role in roles %} {% if not role.users[0] %}
+        <li>{{role.label}}</li>
+        {% endif %} {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
 </ul>
+
 </div>
 
 {% endblock %}
