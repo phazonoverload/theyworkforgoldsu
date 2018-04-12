@@ -44,28 +44,3 @@ $ source venv/bin/activate
 $ export FLASK_APP=main.py
 $ flask run --host=0.0.0.0 --port=8000
 ```
-
-## Technical requirements for coursework
-
-Criteria                   | Demonstrated
----------------------------|---------------------------
-It is a flask app | It runs
-More than one route and view | `/app/routes.py`
-Uses Jinja templates | `/app/templates/*.html`
-Jinja control structures | `/app/templates/officer.html`
-One or more forms | `/app/templates/register.html`
-Forms have validation | `/app/forms.py` both built-in and custom (`validate_passphrase()`)
-Useful feedback messages | `/app/forms.py` in `validate_passphrase()`
-Bonus: wtforms | `/app/forms.py` include at top, use of field types in file
-Database backend with CRUD | Yes, uses sqlite. Examples below are from `/app/routes.py`<br> Create: `/promises/<id>/update`<br> Read: `/`<br>Update: `/edit`<br>Delete: Via direct database connection (purposeful)
-Create & update via forms | `/app/forms.py`<br>Create: `RegistrationForm()`<br>Update: `EditUserForm()`
-Bonus: SQLAlchemy | `/app/__init__.py`
-User auth | /login, /register, /logout
-Sessions for user | Use of `login_user()` in `/app/routes.py`
-Passwords as hashes | `set_password()` and `check_password()` functions in `User` model
-A way to logout | /logout
-Bonus: Salts | werkzeug.security's `generate_password_hash()` and `check_password_hash()` functions salt hashes by default
-Bonus: flask-login usage | Use of `current_user`, `login_user`, `logout_user` and `login_required`
-Basic API | TBC: docs at /api
-Bonus: GET, POST, PUSH and DELETE via API | Not suitable for this project
-Bonus: flask-restful | flask-restless was sufficient
