@@ -8,9 +8,13 @@
   </div>
   <div class="box">
     <ul class="updates all">
-      {% for update in updates|sort(attribute='datetime', reverse=true) %} 
-        {% include "_update.html" %} 
-      {% endfor %}
+      {% if updates|length == 0 %}
+        <p>There have been no updates to campaign promises by elected representatives.</p>
+      {% else %}
+        {% for update in updates|sort(attribute='datetime', reverse=true) %} 
+          {% include "_update.html" %} 
+        {% endfor %}
+      {% endif %}
     </ul>
   </div>
 </div>
