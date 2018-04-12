@@ -27,7 +27,7 @@ $ export FLASK_APP=main.py
 $ flask db upgrade
 ```
 
-### Rename config.example.py tp config.py and configure passphrases
+Make sure you set the following environment variables
 
 ```
 PASSPHRASE="YourPassphraseForUserReg"
@@ -49,7 +49,6 @@ $ flask run --host=0.0.0.0 --port=8000
 
 - Facebook avatars broken
 - Responsive views
-- Deploy on Heroku
 - No updates all view email link
 - Move to redis
 - Take all instances of Goldsmiths-specific language and move to variables
