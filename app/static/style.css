@@ -179,6 +179,7 @@ body {
   will-change: transform;
   /* A background-color is required */
   min-height: 100vh;
+  background: var(--background);
 }
 
 .slideout-open,
@@ -278,6 +279,19 @@ footer .links a {
 
 .hero p {
   margin-top: 1em;
+}
+
+@media screen and (max-width: 900px) {
+  .hero {
+    margin-top: 1em;
+    margin-bottom: 0;
+  }
+  .hero h1 {
+    font-size: 1.5em;
+  }
+  .hero h2 {
+    font-size: 1.25em;
+  }
 }
 
 .btn, form input[type=submit] {
@@ -444,6 +458,14 @@ ul.updates li:last-child {
   padding-bottom: 0;
 }
 
+@media screen and (max-width: 900px) {
+  ul.promises li,
+  ul.updates li {
+    margin-top: 1em;
+    padding-bottom: 1em;
+  }
+}
+
 ul.promises li p {
   margin-top: 0.5em;
 }
@@ -455,6 +477,12 @@ ul.promises li a.btn {
 
 ul.promises li a.new {
   margin-left: 1em;
+}
+
+@media screen and (max-width: 900px) {
+  ul.promises li a {
+    font-size: 0.8em;
+  }
 }
 
 ul.updates p {
@@ -564,6 +592,17 @@ ul.updates h4 {
   margin-bottom: 0.5em;
 }
 
+@media screen and (max-width: 900px) {
+  .officer.hero {
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 1em;
+    margin-bottom: 1em;
+  }
+  .officer.hero h3, .officer.hero a.btn {
+    display: none;
+  }
+}
+
 nav.officer-panes {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -581,6 +620,12 @@ nav.officer-panes a {
 nav.officer-panes a.active {
   background: white;
   font-weight: bold;
+}
+
+@media screen and (max-width: 900px) {
+  nav.officer-panes a {
+    font-size: 0.8em;
+  }
 }
 
 nav.officer-panes ~ .box {

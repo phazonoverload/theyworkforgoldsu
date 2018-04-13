@@ -17,6 +17,12 @@
       padding-bottom: 0;
     }
   }
+  @media screen and (max-width: $break-mid) {
+    li {
+      margin-top: 1em;
+      padding-bottom: 1em;
+    }
+  }
 }
 
 ul.promises,
@@ -35,6 +41,11 @@ ul.promises {
     }
     a.new {
       margin-left: 1em;
+    }
+    @media screen and (max-width: $break-mid) {
+      a {
+        font-size: 0.8em;
+      }
     }
   }
 }

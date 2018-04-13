@@ -10,6 +10,14 @@
     margin-top: 1em;
     margin-bottom: 0.5em;
   }
+  @media screen and (max-width: $break-mid) {
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 1em;
+    margin-bottom: 1em;
+    h3, a.btn {
+      display: none;
+    }
+  }
 }
 
 nav.officer-panes {
@@ -25,6 +33,9 @@ nav.officer-panes {
     &.active {
       background: white;
       font-weight: bold;
+    }
+    @media screen and (max-width: $break-mid) {
+      font-size: 0.8em;
     }
   }
   ~ .box {

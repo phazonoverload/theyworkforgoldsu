@@ -7,7 +7,7 @@
     <p>{{update.personal}}</p>
     <small>
       <span>{{update.datetime}} by </span>
-      {% if user_id %}
+      {% if update.user_id %}
         <a href="{{url_for('officer', role=update.user.role.value)}}">
           {{update.user.name}}
         </a>

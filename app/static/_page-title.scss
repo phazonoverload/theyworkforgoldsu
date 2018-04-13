@@ -10,4 +10,14 @@
   p {
     margin-top: 1em;
   }
+  @media screen and (max-width: $break-mid) {
+    margin-top: 1em;
+    margin-bottom: 0;
+    h1 {
+      font-size: 1.5em;
+    }
+    h2 {
+      font-size: 1.25em;
+    }
+  }
 }

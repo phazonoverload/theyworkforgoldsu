@@ -38,6 +38,7 @@ body {
   will-change: transform;
   /* A background-color is required */
   min-height: 100vh;
+  background: var(--background);
 }
 
 .slideout-open,
