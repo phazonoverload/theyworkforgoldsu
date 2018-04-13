@@ -403,6 +403,17 @@ form .input-group p {
   }
 }
 
+@media screen and (max-width: 500px) {
+  .users-list .grid {
+    grid-template-columns: 1fr;
+  }
+  .users-list .grid a {
+    display: grid;
+    grid-column-gap: 1em;
+    grid-template-columns: 1fr 2.5fr;
+  }
+}
+
 ul.promises,
 ul.updates {
   list-style-type: none;

@@ -5,8 +5,10 @@
     <img src="https://avatars.io/twitter/{{user.twitter}}" alt="Twitter avatar for {{user.name}}"> {% elif user.facebook %}
     <img src="https://avatars.io/facebook/{{user.facebook}}" alt="Facbeook profile picture for {{user.name}}"> {% else %}
     <img src="https://avatars.io/twitter" alt="Generic avatar"> {% endif %}
-    <h1>{{user.name}}</h1>
-    <h2>{{user.role.label}}</h2>
+    <div class="meta">
+      <h1>{{user.name}}</h1>
+      <h2>{{user.role.label}}</h2>
+    </div>
   </a>
   {% endfor %}
 </div>
