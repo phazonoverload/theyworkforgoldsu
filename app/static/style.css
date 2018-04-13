@@ -132,6 +132,9 @@ header .toggle-button {
     color: var(--brand);
     text-transform: uppercase;
     font-weight: bold;
+    background: white;
+    outline: 0;
+    border: 0;
   }
   header .toggle-button svg {
     margin-left: 0.5em;
