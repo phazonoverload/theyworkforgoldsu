@@ -47,7 +47,7 @@
       }
     }
     .meta {
-      padding: 1em;
+      display: none;
     }
   }
 }
@@ -64,4 +64,7 @@
   text-transform: uppercase;
   font-weight: bold;
   text-decoration: none;
+  @media screen and (max-width: $break-mid) {
+    font-size: 0.75em;
+  }
 }

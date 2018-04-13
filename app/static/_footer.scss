@@ -43,4 +43,19 @@ footer {
       font-style: italic;
     }
   }
+  @media screen and (max-width: $break-mid) {
+    padding: 2em 0;
+    margin-top: 2em;
+    font-size: 0.75em;
+    .grid {
+      grid-template-columns: 1fr;
+      grid-row-gap: 2em;
+    }
+    .donate {
+      padding: 1em;
+    }
+    .links {
+      font-size: inherit;
+    }
+  }
 }

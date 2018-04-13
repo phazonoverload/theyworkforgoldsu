@@ -39,4 +39,9 @@
       margin-left: 1.5em;
     }
   }
+  @media screen and (max-width: $break-mid) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 }

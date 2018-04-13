@@ -7,4 +7,10 @@
     font-size: 2em;
     margin-bottom: 1em;
   }
+  @media screen and (max-width: $break-mid) {
+    padding: 1em;
+    h2.box-title {
+      font-size: 1.5em;
+    }
+  }
 }
