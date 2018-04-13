@@ -147,7 +147,7 @@ def admin():
 def admin_promise():
     form = NewPromiseForm()
     if form.validate_on_submit():
-        promise = Promise(title=str(form.title.data), body=str(form.body.data), personal=str(form.personal.data), role_id=form.role_id.data.id)
+        promise = Promise(title=str(form.title.data), body=str(form.body.data), role_id=form.role_id.data.id)
         db.session.add(promise)
         db.session.commit()
         flash("New Promise added")
