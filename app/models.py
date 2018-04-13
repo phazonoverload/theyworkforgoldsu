@@ -20,7 +20,7 @@ class User(UserMixin, db.Model):
   name = db.Column(db.String(128), index=True, unique=True)
   email = db.Column(db.String(128), index=True, unique=True)
   twitter = db.Column(db.String(64))
-  facebook = db.Column(db.String(64))
+  gravatar = db.Column(db.String(64))
   resigned = db.Column(db.Boolean(), index=True, default=False)
   password_hash = db.Column(db.String(128))
   signed_up = db.Column(db.DateTime, default=datetime.utcnow)

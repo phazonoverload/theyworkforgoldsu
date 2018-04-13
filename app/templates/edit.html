@@ -29,7 +29,7 @@
         {% endfor %}
       </div>
       <div class="input-group">
-        {{form.facebook.label}} {{form.facebook(value=current_user.facebook)}} {% for error in form.facebook.errors %}
+        {{form.gravatar.label}} {{form.gravatar(value=current_user.gravatar)}} {% for error in form.gravatar.errors %}
         <p>{{error}}</p>
         {% endfor %}
       </div>

@@ -1,8 +1,8 @@
 <div class="officer hero">
   {% if user.twitter %}
     <img src="https://avatars.io/twitter/{{user.twitter}}" alt="Twitter avatar for {{user.name}}"> 
-  {% elif user.facebook %}
-    <img src="https://avatars.io/facebook/{{user.facebook}}" alt="Facbeook profile picture for {{user.name}}"> 
+  {% elif user.gravatar %}
+    <img src="{{ user.gravatar | gravatar }}" alt="Avatar for {{user.name}}"> 
   {% else %}
     <img src="https://avatars.io/twitter" alt="Generic avatar"> 
   {% endif %}

@@ -68,7 +68,7 @@ def edit_profile():
         current_user.name = str(form.name.data)
         current_user.email = str(form.email.data)
         current_user.twitter = str(form.twitter.data)
-        current_user.facebook = str(form.facebook.data)
+        current_user.gravatar = str(form.gravatar.data)
         db.session.commit()
         flash('Changes to account made!')
     return render_template('edit.html', form=form)
@@ -103,7 +103,7 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(name=str(form.name.data), email=str(form.email.data), role=form.role.data, twitter=str(form.twitter.data), facebook=str(form.facebook.data))
+        user = User(name=str(form.name.data), email=str(form.email.data), role=form.role.data, twitter=str(form.twitter.data), gravatar=str(form.gravatar.data))
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()

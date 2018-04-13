@@ -32,14 +32,13 @@
         {% endfor %}
       </div>
       <div class="input-group">
-        {{form.facebook.label}} {{form.facebook()}} {% for error in form.facebook.errors %}
+        {{form.gravatar.label}} {{form.gravatar()}} {% for error in form.gravatar.errors %}
         <p>{{error}}</p>
         {% endfor %}
       </div>
     </div>
     <span class="info">We won't display this information, but will pull your profile picture for use in this site. Please fill in either your twitter
-      username (no @) or your facebook username (facebook.com/
-      <u>thisbit</u>). If you fill in neither, you'll get a generic avatar.</span>
+      username (no @) or your email address as used on <a href="https://en.gravatar.com/">Gravatar</a>. If you fill in neither, you'll get a generic avatar.</span>
   </div>
   <div class="input-group">
     {{form.password.label}} {{form.password()}} {% for error in form.password.errors %}

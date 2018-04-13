@@ -20,7 +20,7 @@ class RegistrationForm(FlaskForm):
     name = StringField('Full Name', validators=[DataRequired()])
     email = StringField('Email Address', validators=[DataRequired(), Email()])
     twitter = StringField('Twitter username (optional)')
-    facebook = StringField('Facebook username (optional)')
+    gravatar = StringField('Gravatar email (optional)')
     role = QuerySelectField(query_factory=lambda: Role.query, allow_blank=True, get_label='label')
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
@@ -70,7 +70,7 @@ class EditUserForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     email = StringField('Email address', validators=[DataRequired()])
     twitter = StringField('Twitter username (optional)')
-    facebook = StringField('Facebook username (optional)')
+    gravatar = StringField('Gravatar email (optional)')
     submit = SubmitField('Submit')
 
 class EditPasswordForm(FlaskForm):

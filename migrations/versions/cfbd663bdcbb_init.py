@@ -1,8 +1,8 @@
-"""“automated”
+"""Init
 
-Revision ID: dd8f2d487223
+Revision ID: cfbd663bdcbb
 Revises: 
-Create Date: 2018-04-06 16:47:33.384847
+Create Date: 2018-04-13 19:08:46.255994
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'dd8f2d487223'
+revision = 'cfbd663bdcbb'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -38,14 +38,13 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_promise_actionable'), 'promise', ['actionable'], unique=False)
-    op.create_index(op.f('ix_promise_role_id'), 'promise', ['role_id'], unique=False)
     op.create_table('user',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('role_id', sa.String(length=64), nullable=True),
     sa.Column('name', sa.String(length=128), nullable=True),
     sa.Column('email', sa.String(length=128), nullable=True),
     sa.Column('twitter', sa.String(length=64), nullable=True),
-    sa.Column('facebook', sa.String(length=64), nullable=True),
+    sa.Column('gravatar', sa.String(length=64), nullable=True),
     sa.Column('resigned', sa.Boolean(), nullable=True),
     sa.Column('password_hash', sa.String(length=128), nullable=True),
     sa.Column('signed_up', sa.DateTime(), nullable=True),
@@ -78,7 +77,6 @@ def downgrade():
     op.drop_index(op.f('ix_user_name'), table_name='user')
     op.drop_index(op.f('ix_user_email'), table_name='user')
     op.drop_table('user')
-    op.drop_index(op.f('ix_promise_role_id'), table_name='promise')
     op.drop_index(op.f('ix_promise_actionable'), table_name='promise')
     op.drop_table('promise')
     op.drop_index(op.f('ix_role_value'), table_name='role')
