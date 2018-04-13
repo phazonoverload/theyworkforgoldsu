@@ -1,0 +1,20 @@
+.flashes {
+  background: var(--brand-dark);
+  color: white;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  > * {
+    display: inline-block;
+  }
+  span {
+    margin-right: 1em;
+    display: inline-block;
+  }
+  .dismiss {
+    transition-duration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,49 @@
+.box.about {
+  p {
+    line-height: 1.5;
+  }
+  h2, p {
+    margin-bottom: 1em;
+  }
+  .cc {
+    padding-top: 0.5em;
+  }
+}
+
+.api {
+  line-height: 1.5em;
+  section {
+    background: var(--light);
+    margin-top: 2em;
+    padding: 1em;
+    p {
+      margin-bottom: 0;
+    }
+    h2 {
+      font-family: monospace;
+      margin-bottom: 0.25em;
+    }
+    a.btn {
+      margin-top: 0.5em;
+      &:not(:last-child) {
+        margin-bottom: 2em;
+      }
+    }
+  }
+  h3 {
+    margin-top: 1em;
+    code {
+      font-family: monospace;
+      font-size: 1.2em;
+    }
+  }
+}
+
+.changelog {
+  margin-top: 3em;
+  padding-top: 2em;
+  border-top: 1px solid var(--brand-dark);
+  ul {
+    margin-left: 1.5em;
+  }
+}

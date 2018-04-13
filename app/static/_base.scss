@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font);
+}
+
+body {
+  background: var(--background);
+}
+
+a {
+  color: inherit;
+}
+
+.w {
+  max-width: var(--wrapper);
+  display: block;
+  margin: 0 auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}

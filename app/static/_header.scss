@@ -1,0 +1,31 @@
+header {
+  background: white;
+  padding: 1em;
+  border-bottom: 1px solid var(--light);
+  a {
+    color: var(--black);
+    text-decoration: none;
+    &.brand {
+      color: var(--brand);
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+  nav a {
+    margin-left: 1em;
+  }
+  &#main .w {
+    display: flex;
+    justify-content: space-between;
+  }
+  &#sub {
+    border-bottom: 0;
+    a {
+      margin-right: 1em;
+    }
+    .explore {
+      font-weight: bold;
+      cursor: default;
+    }
+  }
+}

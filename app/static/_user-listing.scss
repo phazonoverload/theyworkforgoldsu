@@ -1,0 +1,42 @@
+.users-list {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+    a {
+      text-decoration: none;
+      display: block;
+      color: inherit;
+    }
+    img {
+      width: 100%;
+      border: 1px solid var(--light);
+    }
+    h1 {
+      font-size: 1.5em;
+    }
+  }
+  h1,
+  h2,
+  span {
+    margin-top: 0.5rem;
+    display: block;
+  }
+
+  a h2 {
+    font-size: 1em;
+  }
+  .not-reg {
+    background: var(--light);
+    margin-top: 2em;
+    padding: 0.75em 1em 1em;
+    h2 {
+      margin-bottom: 0.5em;
+    }
+    li {
+      margin-top: 0.75em;
+      margin-left: 1.5em;
+    }
+  }
+}

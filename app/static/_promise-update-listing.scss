@@ -1,0 +1,49 @@
+%text-listing {
+  list-style-type: none;
+  li {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid var(--light);
+    meta {
+      margin-top: 0.5em;
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+ul.promises,
+ul.updates {
+  @extend %text-listing;
+}
+
+ul.promises {
+  li {
+    p {
+      margin-top: 0.5em;
+    }
+    a.btn {
+      margin-right: 0;
+      display: inline-block;
+    }
+    a.new {
+      margin-left: 1em;
+    }
+  }
+}
+
+ul.updates {
+  p {
+    margin: 1em 0;
+  }
+  h4 {
+    margin: 1em 0;
+  }
+}

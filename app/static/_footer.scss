@@ -1,0 +1,46 @@
+footer {
+  background: white;
+  width: 100%;
+  display: block;
+  padding: 2em;
+  margin-top: 4em;
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2em;
+  }
+  p {
+    margin-top: 1em;
+    font-size: 1.1em;
+  }
+  h2.brand {
+    color: var(--brand);
+    text-transform: uppercase;
+  }
+  .donate {
+    padding: 1.5em;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25)
+  }
+  .button {
+    background: #9C76CB;
+    color: white;
+    padding: 1em;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 2em;
+    border-radius: 4em;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25)
+  }
+  .links {
+    font-size: 0.8em;
+    margin-top: 1rem;
+    a {
+      margin-right: 1em;
+      font-style: italic;
+    }
+  }
+}

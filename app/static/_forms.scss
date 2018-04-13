@@ -1,0 +1,63 @@
+.btn {
+  background: var(--black);
+  color: white;
+  text-decoration: none;
+  padding: 0.5em;
+  display: inline-block;
+  margin-right: 0.5em;
+  margin-top: 1em;
+  svg {
+    margin-right: 0.5em;
+    display: inline-block;
+  }
+}
+
+form {
+  span.info {
+    font-size: 0.8em;
+    font-style: italic;
+    margin-bottom: 1em;
+  }
+  input,
+  textarea,
+  select {
+    display: block;
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid var(--light);
+    font-size: 1em;
+  }
+  input[type=checkbox] {
+    display: inline;
+    width: auto;
+  }
+  input[type=submit] {
+    @extend .btn;
+    padding: 0.8em;
+    font-size: 1em;
+  }
+  .input-group {
+    margin-bottom: 1em;
+    p {
+      display: block;
+      margin-top: 0.5em;
+      color: red;
+      font-size: 0.8em;
+      font-style: italic;
+    }
+  }
+}
+
+.avatar-select {
+  background: var(--light);
+  padding: 1em;
+  margin-bottom: 1em;
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2em;
+  }
+  .input-group {
+    margin-bottom: 0;
+  }
+}
