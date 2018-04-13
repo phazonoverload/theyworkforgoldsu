@@ -32,6 +32,24 @@
   h2 {
     margin-bottom: 1em;
   }
+  @media screen and (max-width: $break-mid) {
+    margin-bottom: 2em;
+    .w {
+      grid-template-columns: 1fr;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .img {
+      padding: 3em 1em;
+      box-sizing: border-box;
+      h2 {
+        font-size: 2em;
+      }
+    }
+    .meta {
+      padding: 1em;
+    }
+  }
 }
 
 .home.users-list a.more {

@@ -463,6 +463,27 @@ ul.updates h4 {
   margin-bottom: 1em;
 }
 
+@media screen and (max-width: 900px) {
+  .jumbotron {
+    margin-bottom: 2em;
+  }
+  .jumbotron .w {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .jumbotron .img {
+    padding: 3em 1em;
+    box-sizing: border-box;
+  }
+  .jumbotron .img h2 {
+    font-size: 2em;
+  }
+  .jumbotron .meta {
+    padding: 1em;
+  }
+}
+
 .home.users-list a.more {
   width: 100%;
   color: white;
