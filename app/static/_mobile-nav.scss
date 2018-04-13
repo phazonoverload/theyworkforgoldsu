@@ -14,7 +14,7 @@ body {
   z-index: 0;
   display: none;
   background: white;
-  border: 1px solid var(--light);
+  border: 1px solid $light;
   a {
     display: block;
     padding: 1em;
@@ -38,7 +38,7 @@ body {
   will-change: transform;
   /* A background-color is required */
   min-height: 100vh;
-  background: var(--background);
+  background: $background;
 }
 
 .slideout-open,

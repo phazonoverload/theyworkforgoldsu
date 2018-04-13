@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: var(--font);
+  font-family: $font;
 }
 
 body {
-  background: var(--background);
+  background: $background;
 }
 
 a {
@@ -14,7 +14,7 @@ a {
 }
 
 .w {
-  max-width: var(--wrapper);
+  max-width: $wrapper;
   display: block;
   margin: 0 auto;
   padding-left: 1em;

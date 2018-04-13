@@ -1,5 +1,5 @@
 .btn {
-  background: var(--black);
+  background: $black;
   color: white;
   text-decoration: none;
   padding: 0.5em;
@@ -24,7 +24,7 @@ form {
     display: block;
     width: 100%;
     padding: 0.5em;
-    border: 1px solid var(--light);
+    border: 1px solid $light;
     font-size: 1em;
   }
   input[type=checkbox] {
@@ -49,7 +49,7 @@ form {
 }
 
 .avatar-select {
-  background: var(--light);
+  background: $light;
   padding: 1em;
   margin-bottom: 1em;
   .grid {

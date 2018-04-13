@@ -1,12 +1,12 @@
 header {
   background: white;
   padding: 1em 0;
-  border-bottom: 1px solid var(--light);
+  border-bottom: 1px solid $light;
   a {
-    color: var(--black);
+    color: $black;
     text-decoration: none;
     &.brand {
-      color: var(--brand);
+      color: $brand;
       text-transform: uppercase;
       font-weight: bold;
     }
@@ -43,7 +43,7 @@ header {
     }
     .toggle-button {
       display: block;
-      color: var(--brand);
+      color: $brand;
       text-transform: uppercase;
       font-weight: bold;
       background: white;

@@ -2,16 +2,14 @@
 
 $break-mid: 900px;
 $break-small: 500px;
-
-:root {
-  --background: #EFDEC3;
-  --brand: #15AF97;
-  --brand-dark: #0A6057;
-  --black: #372253;
-  --light: #CDDEEE;
-  --font: 'Lato', sans-serif;
-  --wrapper: 1090px;
-}
+$font: 'Lato',
+sans-serif;
+$wrapper: 1090px;
+$background: #EFDEC3;
+$brand: #15AF97;
+$brand-dark: #0A6057;
+$black: #372253;
+$light: #CDDEEE;
 
 @import "_base";
 @import "_box";

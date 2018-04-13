@@ -20,7 +20,7 @@
 .api {
   line-height: 1.5em;
   section {
-    background: var(--light);
+    background: $light;
     margin-top: 2em;
     padding: 1em;
     p {
@@ -52,7 +52,7 @@
 .changelog {
   margin-top: 3em;
   padding-top: 2em;
-  border-top: 1px solid var(--brand-dark);
+  border-top: 1px solid $brand-dark;
   ul {
     margin-left: 1.5em;
   }

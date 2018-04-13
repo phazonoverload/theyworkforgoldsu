@@ -1,23 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
-:root {
-  --background: #EFDEC3;
-  --brand: #15AF97;
-  --brand-dark: #0A6057;
-  --black: #372253;
-  --light: #CDDEEE;
-  --font: 'Lato', sans-serif;
-  --wrapper: 1090px;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: var(--font);
+  font-family: "Lato", sans-serif;
 }
 
 body {
-  background: var(--background);
+  background: #EFDEC3;
 }
 
 a {
@@ -25,7 +15,7 @@ a {
 }
 
 .w {
-  max-width: var(--wrapper);
+  max-width: 1090px;
   display: block;
   margin: 0 auto;
   padding-left: 1em;
@@ -54,7 +44,7 @@ a {
 }
 
 .flashes {
-  background: var(--brand-dark);
+  background: #0A6057;
   color: white;
   padding: 1em;
   display: flex;
@@ -80,16 +70,16 @@ a {
 header {
   background: white;
   padding: 1em 0;
-  border-bottom: 1px solid var(--light);
+  border-bottom: 1px solid #CDDEEE;
 }
 
 header a {
-  color: var(--black);
+  color: #372253;
   text-decoration: none;
 }
 
 header a.brand {
-  color: var(--brand);
+  color: #15AF97;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -129,7 +119,7 @@ header .toggle-button {
   }
   header .toggle-button {
     display: block;
-    color: var(--brand);
+    color: #15AF97;
     text-transform: uppercase;
     font-weight: bold;
     background: white;
@@ -157,7 +147,7 @@ body {
   z-index: 0;
   display: none;
   background: white;
-  border: 1px solid var(--light);
+  border: 1px solid #CDDEEE;
 }
 
 .slideout-menu a {
@@ -182,7 +172,7 @@ body {
   will-change: transform;
   /* A background-color is required */
   min-height: 100vh;
-  background: var(--background);
+  background: #EFDEC3;
 }
 
 .slideout-open,
@@ -215,7 +205,7 @@ footer p {
 }
 
 footer h2.brand {
-  color: var(--brand);
+  color: #15AF97;
   text-transform: uppercase;
 }
 
@@ -298,7 +288,7 @@ footer .links a {
 }
 
 .btn, form input[type=submit] {
-  background: var(--black);
+  background: #372253;
   color: white;
   text-decoration: none;
   padding: 0.5em;
@@ -324,7 +314,7 @@ form select {
   display: block;
   width: 100%;
   padding: 0.5em;
-  border: 1px solid var(--light);
+  border: 1px solid #CDDEEE;
   font-size: 1em;
 }
 
@@ -351,7 +341,7 @@ form .input-group p {
 }
 
 .avatar-select {
-  background: var(--light);
+  background: #CDDEEE;
   padding: 1em;
   margin-bottom: 1em;
 }
@@ -381,7 +371,7 @@ form .input-group p {
 
 .users-list .grid img {
   width: 100%;
-  border: 1px solid var(--light);
+  border: 1px solid #CDDEEE;
 }
 
 .users-list .grid h1 {
@@ -400,7 +390,7 @@ form .input-group p {
 }
 
 .users-list .not-reg {
-  background: var(--light);
+  background: #CDDEEE;
   margin-top: 2em;
   padding: 0.75em 1em 1em;
 }
@@ -441,7 +431,7 @@ ul.updates li {
   margin-top: 2em;
   margin-bottom: 1em;
   padding-bottom: 2em;
-  border-bottom: 1px solid var(--light);
+  border-bottom: 1px solid #CDDEEE;
 }
 
 ul.promises li meta,
@@ -497,7 +487,7 @@ ul.updates h4 {
 }
 
 .jumbotron {
-  background: var(--brand);
+  background: #15AF97;
   margin-bottom: 4em;
 }
 
@@ -562,7 +552,7 @@ ul.updates h4 {
 .home.users-list a.more {
   width: 100%;
   color: white;
-  background: var(--brand-dark);
+  background: #0A6057;
   text-align: center;
   padding: 1em;
   font-size: 1em;
@@ -587,7 +577,7 @@ ul.updates h4 {
 
 .officer.hero img {
   width: 100%;
-  border: 1px solid var(--light);
+  border: 1px solid #CDDEEE;
 }
 
 .officer.hero h3 {
@@ -662,7 +652,7 @@ nav.officer-panes ~ .box {
 }
 
 .api section {
-  background: var(--light);
+  background: #CDDEEE;
   margin-top: 2em;
   padding: 1em;
 }
@@ -702,7 +692,7 @@ nav.officer-panes ~ .box {
 .changelog {
   margin-top: 3em;
   padding-top: 2em;
-  border-top: 1px solid var(--brand-dark);
+  border-top: 1px solid #0A6057;
 }
 
 .changelog ul {

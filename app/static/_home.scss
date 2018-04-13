@@ -1,5 +1,5 @@
 .jumbotron {
-  background: var(--brand);
+  background: $brand;
   margin-bottom: 4em;
   * {
     color: white;
@@ -55,7 +55,7 @@
 .home.users-list a.more {
   width: 100%;
   color: white;
-  background: var(--brand-dark);
+  background: $brand-dark;
   text-align: center;
   padding: 1em;
   font-size: 1em;
