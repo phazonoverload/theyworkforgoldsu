@@ -19,23 +19,23 @@ def people():
     # Grab all roles where there are no users attached
     # empty_roles = db.session.query(Role).filter_by(Role.users=None)
     roles = Role.query.all()
-    return render_template('officers.html', users=users, ft_count=ft_count, pt_count=pt_count, roles=roles)
+    return render_template('user_list.html', users=users, ft_count=ft_count, pt_count=pt_count, roles=roles)
 
 @app.route('/people/<role>')
 def officer(role):
     user = User.query.filter_by(role_id=role).first_or_404()
-    return render_template('officer.html', user=user, single=True)
+    return render_template('user_single_promises.html', user=user, single=True)
 
 @app.route('/people/<role>/updates', methods=['GET', 'POST'])
 def officer_updates(role):
     user = User.query.filter_by(role_id=role).first_or_404()
     updates = Update.query.filter_by(user_id=user.id).all()
-    return render_template('officer_updates.html', user=user, updates=updates, promise_id=True)
+    return render_template('user_single_updates.html', user=user, updates=updates, promise_id=True)
 
 @app.route('/promises')
 def promises():
     promises = Promise.query.all()
-    return render_template('promises.html', promises=promises, user_id=True, hide_update_button=True)
+    return render_template('promise_list.html', promises=promises, user_id=True, hide_update_button=True)
 
 @app.route('/promises/<id>')
 def single_promise(id):
@@ -58,7 +58,7 @@ def update_promise(id):
 @app.route('/updates')
 def updates():
     updates = Update.query.order_by(Update.datetime.desc()).all()
-    return render_template('updates.html', updates=updates, promise_id=True, user_id=True)
+    return render_template('update_list.html', updates=updates, promise_id=True, user_id=True)
 
 @app.route('/edit', methods=['GET', 'POST'])
 @login_required
@@ -71,7 +71,7 @@ def edit_profile():
         current_user.gravatar = str(form.gravatar.data)
         db.session.commit()
         flash('Changes to account made!')
-    return render_template('edit.html', form=form)
+    return render_template('user_edit.html', form=form)
 
 @app.route('/edit/password', methods=['GET', 'POST'])
 @login_required
@@ -82,7 +82,7 @@ def edit_password():
             current_user.set_password(form.new_password.data)
             db.session.commit()
             flash('Password changed')
-    return render_template('edit_password.html', form=form)
+    return render_template('user_edit_password.html', form=form)
 
 @app.route('/api')
 def api_docs():
@@ -141,7 +141,7 @@ def logout():
 
 @app.route('/admin')
 def admin():
-    return render_template('admin.html')
+    return render_template('admin_main.html')
 
 @app.route('/admin/promises', methods=['GET', 'POST'])
 def admin_promise():
