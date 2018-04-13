@@ -290,7 +290,7 @@ footer .links a {
     font-size: 1.5em;
   }
   .hero h2 {
-    font-size: 1.25em;
+    font-size: 1em;
   }
 }
 
@@ -644,6 +644,16 @@ nav.officer-panes ~ .box {
   padding-top: 0.5em;
 }
 
+@media screen and (max-width: 900px) {
+  .box.about {
+    margin-top: 1em;
+  }
+  .box.about h2 {
+    font-size: 1em;
+    margin-top: 0;
+  }
+}
+
 .api {
   line-height: 1.5em;
 }
@@ -678,6 +688,12 @@ nav.officer-panes ~ .box {
 .api h3 code {
   font-family: monospace;
   font-size: 1.2em;
+}
+
+@media screen and (max-width: 900px) {
+  .api {
+    margin-top: 1em;
+  }
 }
 
 .changelog {

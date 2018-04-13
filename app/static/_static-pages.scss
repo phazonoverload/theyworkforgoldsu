@@ -8,6 +8,13 @@
   .cc {
     padding-top: 0.5em;
   }
+  @media screen and (max-width: $break-mid) {
+    margin-top: 1em;
+    h2 {
+      font-size: 1em;
+      margin-top: 0;
+    }
+  }
 }
 
 .api {
@@ -36,6 +43,9 @@
       font-family: monospace;
       font-size: 1.2em;
     }
+  }
+  @media screen and (max-width: $break-mid) {
+    margin-top: 1em;
   }
 }
 

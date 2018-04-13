@@ -11,7 +11,6 @@
       {% endif %}
     </div>
     <div class="box">
-      <h2>This promise has {{promise.updates.count()}} updates so far</h2>
       <ul class="updates">
         {% for update in promise.updates|sort(attribute='datetime', reverse=true) %} {% include "_update.html" %} {% endfor %}
         {% if promise.updates.count() == 0 %}
