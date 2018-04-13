@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700");
 :root {
-  --background: #e9e3d0;
+  --background: #EFDEC3;
   --brand: #15AF97;
   --brand-dark: #0A6057;
   --black: #372253;
@@ -70,7 +70,7 @@ a {
 
 header {
   background: white;
-  padding: 1em;
+  padding: 1em 0;
   border-bottom: 1px solid var(--light);
 }
 
@@ -105,6 +105,81 @@ header#sub a {
 header#sub .explore {
   font-weight: bold;
   cursor: default;
+}
+
+header .toggle-button {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  header nav {
+    display: none;
+  }
+  header#sub {
+    display: none;
+  }
+  header .toggle-button {
+    display: block;
+    color: var(--brand);
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  header .toggle-button svg {
+    margin-left: 0.5em;
+  }
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.slideout-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 256px;
+  min-height: 100vh;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  z-index: 0;
+  display: none;
+  background: white;
+  border: 1px solid var(--light);
+}
+
+.slideout-menu a {
+  display: block;
+  padding: 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.slideout-menu-left {
+  left: 0;
+}
+
+.slideout-menu-right {
+  right: 0;
+}
+
+.slideout-panel {
+  position: relative;
+  z-index: 1;
+  will-change: transform;
+  /* A background-color is required */
+  min-height: 100vh;
+}
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+  overflow: hidden;
+}
+
+.slideout-open .slideout-menu {
+  display: block;
 }
 
 footer {

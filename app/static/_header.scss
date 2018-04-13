@@ -1,6 +1,6 @@
 header {
   background: white;
-  padding: 1em;
+  padding: 1em 0;
   border-bottom: 1px solid var(--light);
   a {
     color: var(--black);
@@ -26,6 +26,29 @@ header {
     .explore {
       font-weight: bold;
       cursor: default;
+    }
+  }
+  .toggle-button {
+    display: none;
+  }
+}
+
+@media screen and (max-width: $break-mid) {
+  header {
+    nav {
+      display: none;
+    }
+    &#sub {
+      display: none;
+    }
+    .toggle-button {
+      display: block;
+      color: var(--brand);
+      text-transform: uppercase;
+      font-weight: bold;
+      svg {
+        margin-left: 0.5em;
+      }
     }
   }
 }

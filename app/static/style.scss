@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700');
 
+$break-mid: 900px;
+
 :root {
-  --background: rgb(233, 227, 208);
+  --background: #EFDEC3;
   --brand: #15AF97;
   --brand-dark: #0A6057;
   --black: #372253;
@@ -14,6 +16,7 @@
 @import "_box";
 @import "_flash";
 @import "_header";
+@import "_mobile-nav";
 @import "_footer";
 @import "_page-title";
 @import "_forms";

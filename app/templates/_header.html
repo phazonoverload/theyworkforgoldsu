@@ -6,10 +6,12 @@
       {% if current_user.is_anonymous %}
       <a href="{{url_for('login')}}">Login</a>
       {% elif current_user %}
-      <a href="{{url_for('officer', role=current_user.role.value)}}">{{current_user.name}}</a>
-      <a href="{{url_for('edit_profile')}}">Edit Profile</a>
-      <a href="{{url_for('logout')}}">Logout</a>
+        <a href="{{url_for('officer', role=current_user.role.value)}}">{{current_user.name}}</a>
+        <a href="{{url_for('edit_profile')}}">Edit Profile</a>
+        <a href="{{url_for('logout')}}">Logout</a>
       {% endif %}
+    </nav>
+    <button class="toggle-button">Menu <i class="fas fa-bars"></i></button>
   </div>
 </header>
 <header id="sub">
