@@ -1,8 +1,8 @@
-"""Init
+"""“init”
 
-Revision ID: cfbd663bdcbb
+Revision ID: fc831b96805b
 Revises: 
-Create Date: 2018-04-13 19:08:46.255994
+Create Date: 2018-04-14 10:03:37.138215
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'cfbd663bdcbb'
+revision = 'fc831b96805b'
 down_revision = None
 branch_labels = None
 depends_on = None

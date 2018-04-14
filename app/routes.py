@@ -150,7 +150,7 @@ def admin_promise():
         promise = Promise(title=str(form.title.data), body=str(form.body.data), role_id=form.role_id.data.id)
         db.session.add(promise)
         db.session.commit()
-        flash("New Promise added")
+        flash("New Promise added: {}".format(form.title.data))
     return render_template('admin_promise.html', form=form)
 
 @app.route('/admin/roles', methods=['GET', 'POST'])
@@ -160,7 +160,7 @@ def admin_role():
         role = Role(label=str(form.label.data), value=str(form.value.data), role_type=str(form.role_type.data))
         db.session.add(role)
         db.session.commit()
-        flash("New Role added")
+        flash("New Role added: {}".format(form.label.data))
     return render_template('admin_role.html', form=form)
 
 ###
