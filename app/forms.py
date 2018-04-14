@@ -21,7 +21,7 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email Address', validators=[DataRequired(), Email()])
     twitter = StringField('Twitter username (optional)')
     gravatar = StringField('Gravatar email (optional)')
-    role = QuerySelectField(query_factory=lambda: Role.query, allow_blank=True, get_label='label')
+    role = QuerySelectField(query_factory=lambda: Role.query, allow_blank=True, get_label='label', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
     passphrase = StringField('Passphrase', validators=[DataRequired()])
@@ -36,7 +36,7 @@ class RegistrationForm(FlaskForm):
 class NewPromiseForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     body = TextAreaField('Description', validators=[DataRequired()])
-    role_id = QuerySelectField(query_factory=lambda: Role.query, allow_blank=True, get_label='label')
+    role_id = QuerySelectField('Role', query_factory=lambda: Role.query, allow_blank=True, get_label='label', validators=[DataRequired()])
     passphrase = StringField('Passphrase', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
