@@ -162,11 +162,3 @@ def admin_role():
         db.session.commit()
         flash("New Role added: {}".format(form.label.data))
     return render_template('admin_role.html', form=form)
-
-###
-### REDIRECT ROUTES
-###
-
-@app.route('/people')
-def redirect_o(role):
-    return redirect(url_for('index'))
