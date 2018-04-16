@@ -43,7 +43,7 @@ def update_promise(id):
     promise = Promise.query.filter_by(id=id).first_or_404()
     form = NewUpdateForm()
     if form.validate_on_submit():
-        update = Update(body=str(form.body.data), user_id=current_user.id, promise_id=promise.id)
+        update = Update(body=str(form.body.data), personal=str(form.personal.data), user_id=current_user.id, promise_id=promise.id)
         db.session.add(update)
         db.session.commit()
         flash("New update submitted!")
