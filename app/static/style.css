@@ -486,6 +486,14 @@ ul.updates h4 {
   margin: 1em 0;
 }
 
+.notice {
+  background: #F8AD15;
+  padding: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
 .jumbotron {
   background: #15AF97;
   margin-bottom: 4em;
